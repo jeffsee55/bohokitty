@@ -23,6 +23,8 @@ gem "simple_form"
 gem "title"
 gem "uglifier"
 gem "unicorn"
+gem "devise"
+gem "cancancan"
 gem 'activeadmin', github: 'activeadmin'
 
 
