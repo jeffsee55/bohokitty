@@ -1,0 +1,14 @@
+.nav-wrapper {
+  background: $light-gray;
+  .nav-container {
+    @include outer-container();
+    height: 80px;
+    padding-top: $nav-vertical-padding;
+    ul {
+      li {
+        display: inline-block;
+        margin: 0 10px;
+      }
+    }
+  }
+}
