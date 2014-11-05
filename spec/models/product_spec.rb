@@ -1,5 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Product, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it {should validate_presence_of(:name) }
+  it {should validate_presence_of(:price) }
+  it {should ensure_length_of(:description).is_at_most(120)}
 end
