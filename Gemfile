@@ -23,6 +23,8 @@ gem "simple_form"
 gem "title"
 gem "uglifier"
 gem "unicorn"
+gem 'activeadmin', github: 'activeadmin'
+
 
 group :development do
   gem "spring"
