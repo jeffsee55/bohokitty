@@ -6,6 +6,6 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index, :show]
 
-  get '/home' => 'high_voltage/pages#show', id: 'home'
+  get '/' => 'high_voltage/pages#show', id: 'home'
 
 end
