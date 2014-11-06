@@ -1,1 +1,5 @@
-<div class="hero-wrapper"></div>
+<div class="hero-wrapper logo"><%= image_tag('boho_kitty.png') %></div>
+<div class="coming-soon">
+  <h3><%= 'Coming Soon'.upcase %></h3>
+</div>
+<%= button_to 'Boho Kitty on Instagram'.upcase, 'http://instagram.com/boho_kitty', form: {target: '_blank'} %>
