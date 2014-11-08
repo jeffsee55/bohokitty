@@ -28,6 +28,9 @@ module Bohokitty
       generate.view_specs false
     end
 
+    config.stripe.publishable_key = 'pk_test_YmthYMo7wGYek0bfnNeT4Nb9'
+    # congig.stripe.auto_mount = false
+
     config.action_controller.action_on_unpermitted_parameters = :raise
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

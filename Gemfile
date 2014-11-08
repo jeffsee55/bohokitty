@@ -26,6 +26,7 @@ gem "unicorn"
 gem "devise"
 gem "cancancan"
 gem 'activeadmin', github: 'activeadmin'
+gem 'stripe-rails'
 
 
 group :development do
