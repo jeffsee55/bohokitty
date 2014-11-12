@@ -28,7 +28,6 @@ gem "cancancan"
 gem 'activeadmin', github: 'activeadmin'
 gem 'stripe-rails'
 
-
 group :development do
   gem "spring"
   gem "spring-commands-rspec"

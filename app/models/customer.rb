@@ -2,10 +2,14 @@ class Customer < ActiveRecord::Base
   has_one :cart
   has_many :charges
 
-  def self.check_if_exists_and_return_cart(email)
-    customer = find_or_create_by(email: email)
-    unless customer.cart
-      Cart.create(customer_id: customer.id)
+  def add_stripe_token(card)
+    unless token?
+      token = Stripe::Customer.create(
+        email: self.email,
+        card: card
+      )
+      self.update_attributes(token: token.id)
     end
+    self
   end
 end

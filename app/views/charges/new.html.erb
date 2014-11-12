@@ -1,0 +1,18 @@
+<br>
+<%= "Your cart total is - $#{@cart.total}" %>
+<%= simple_form_for @charge, html: { id: 'payment-form' } do |f| %>
+  <%= text_field_tag :name, nil, name: nil, placeholder: "Name" %>
+  <%= text_field_tag :email, @customer.email %>
+  <%= text_field_tag :credit_card_number, nil, name: nil, placeholder: 'Credit Card Number' %>
+  <%= text_field_tag :exp_month, nil, name: nil, placeholder: "Exp Month" %>
+  <%= text_field_tag :exp_year, nil, name: nil, placeholder: "Exp Year" %>
+  <%= text_field_tag :cvc, nil, name: nil, placeholder: "CVC" %>
+  <%= text_field_tag :address_line1, nil, name: nil, placeholder: "Address Line 1" %>
+  <%= text_field_tag :address_line2, nil, name: nil, placeholder: "Address Line 2" %>
+  <%= text_field_tag :address_city, nil, name: nil, placeholder: "City" %>
+  <%= text_field_tag :address_state, nil, name: nil, placeholder: "State" %>
+  <%= text_field_tag :address_zip, nil, name: nil, placeholder: "Zip" %>
+  <%= text_field_tag :address_country, nil, name: nil, placeholder: "Country" %>
+  <%= f.input :cart_id, as: :hidden, input_html: { value: @cart.id } %>
+  <%= f.submit "Submit", class: 'submit' %>
+<% end %>

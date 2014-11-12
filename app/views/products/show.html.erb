@@ -3,8 +3,9 @@
 <p><%= @product.description %></p>
 <hr>
 <h3><%= @product.human_price %></h3>
+
 <%= simple_form_for(@cart_product) do |f| %>
-  <%= text_field_tag :email %>
-  <%= f.input :product_id, input_html: { value: @product.id } %>
+  <%= text_field_tag :email, required: true %>
+  <%= f.input :product_id, as: :hidden, input_html: { value: @product.id } %>
   <%= f.submit 'Add to Cart' %>
 <% end %>

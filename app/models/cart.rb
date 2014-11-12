@@ -4,4 +4,8 @@ class Cart < ActiveRecord::Base
   has_one :charge
   has_many :cart_products
   has_many :products, through: :cart_products
+
+  def total
+    self.products.to_a.sum(&:price)
+  end
 end

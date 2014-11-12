@@ -1,3 +1,7 @@
-<% @cart.products.each do |item| %>
-  item.name
-<% end %>
+<ul>
+  <% @cart.products.each do |item| %>
+    <li><%= item.name %></li>
+  <% end %>
+</ul>
+<hr>
+<%= link_to "Proceed to Checkout", new_charge_path(cart_id: @cart, customer_id: current_customer.id) %>

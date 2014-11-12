@@ -1,4 +1,4 @@
-body {
+.high_voltage-pages-show {
   @include background-image(linear-gradient(45deg, transparentize(#9b85a2, 0.4), transparentize(#69b991, 0.6)), url('shoes-f559b181bd3acc8ba415f79a76aa5d6f.png'));
   height: 100vh;
   background-size: cover;
@@ -9,39 +9,39 @@ body {
     font-weight: 300;
     font-size: 4em;
   }
-}
 
-.coming-soon {
-  color: white;
-  @include media($large-screen) {
-    margin-bottom: 100px;
+  .coming-soon {
+    color: white;
+    @include media($large-screen) {
+      margin-bottom: 100px;
+    }
   }
-}
 
-button, input[type="submit"] {
-  font-size: 1em;
-  position: relative;
-  display: block;
-  margin: 0 auto;
-  text-align: center;
-  background: none;
-  border: 1px solid white;
-  border-radius: 0px;
-  &:hover {
-    background: transparentize(white, 0.8)
-  }
-}
-
-.logo {
-  @include media($large-screen) {
-    margin-top: 100px;
-    margin-bottom: 50px;
-  }
-  img {
-    width: 660px;
+  button, input[type="submit"] {
+    font-size: 1em;
+    position: relative;
     display: block;
     margin: 0 auto;
-    position: relative;
-    top: 20%;
+    text-align: center;
+    background: none;
+    border: 1px solid white;
+    border-radius: 0px;
+    &:hover {
+      background: transparentize(white, 0.8)
+    }
+  }
+
+  .logo {
+    @include media($large-screen) {
+      margin-top: 100px;
+      margin-bottom: 50px;
+    }
+    img {
+      width: 660px;
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      top: 20%;
+    }
   }
 }

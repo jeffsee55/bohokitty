@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
+  resources :customers, only: [:new, :create]
   resources :products, only: [:index, :show]
   resources :carts, only: [:show, :destroy]
   resources :cart_products, only: [:create, :destroy]

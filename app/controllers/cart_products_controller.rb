@@ -1,17 +1,17 @@
 class CartProductsController < ApplicationController
   def create
-    # If the email belongs to a customer, use their cart
-    # If no email exist, create a new customer and cart
-    customer_cart = Customer.check_if_exists_and_return_cart(params[:email])
-
+    email = params[:email]
+    customer = Customer.find_or_create_by(email: email)
+    cart = Cart.find_or_create_by(customer_id: customer.id)
     @cart_product = CartProduct.new(
-      cart_id: customer_cart.id,
-      product_id: params[:product_id]
+      cart_id: cart.id,
+      product_id: cart_product_params[:product_id]
     )
     if @cart_product.save
-      redirect_to cart_path(@cart_product.cart_id)
+      redirect_to cart
     else
     end
+    session[:customer_id] = customer.id
   end
 
   def destroy
