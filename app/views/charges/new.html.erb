@@ -1,5 +1,5 @@
 <br>
-<%= "Your cart total is - $#{@cart.total}" %>
+<%= "Your cart total is - $#{@cart.human_total}" %>
 <%= simple_form_for @charge, html: { id: 'payment-form' } do |f| %>
   <%= text_field_tag :name, nil, name: nil, placeholder: "Name" %>
   <%= text_field_tag :email, @customer.email %>

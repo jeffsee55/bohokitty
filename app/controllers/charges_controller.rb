@@ -12,7 +12,6 @@ class ChargesController < ApplicationController
     cart = Cart.find(charge_params[:cart_id])
     customer = cart.customer
     customer.add_stripe_token(card)
-
     Stripe::Charge.create(
       amount: cart.total,
       currency: "usd",
@@ -24,11 +23,12 @@ class ChargesController < ApplicationController
       customer_id: customer.id,
       cart_id: cart.id
     )
+    cart.remove_products
     redirect_to @charge
   end
 
   def show
-    @customer = Stripe::Customer.retrieve(@charge.customer_token)
+    @customer = @charge.customer
     @card_info = Stripe::Token.retrieve(@charge.token).card
   end
 
@@ -38,6 +38,6 @@ class ChargesController < ApplicationController
     end
 
     def charge_params
-      params.require(:charge).permit(:cart_id, :token, :customer_token)
+      params.require(:charge).permit(:cart_id)
     end
 end

@@ -1,6 +1,6 @@
 <ul>
-  <% @cart.products.each do |item| %>
-    <li><%= item.name %></li>
+  <% @cart.products_count.each do |product, count| %>
+    <li><%= count %>-<%= product.name %></li>
   <% end %>
 </ul>
 <hr>

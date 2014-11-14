@@ -11,12 +11,13 @@
 
 </head>
 <body class="<%= body_class %>">
-  <!-- <%= render "navigation" %> -->
+  <%= render "navigation" %>
   <%= debug params %>
-  <%= "Current customer - #{current_customer.email}" %> <br>
-  <%= "Latest customer CartProducts#create - #{Customer.find(session[:customer_id]).email}" if session[:customer_id]%>
+  <%= "Current customer - #{current_customer.email}" if current_customer %> <br>
   <%= render "flashes" -%>
-  <%= yield %>
+  <div class="wrapper">
+    <%= yield %>
+  </div>
   <%= render "javascript" %>
 </body>
 </html>

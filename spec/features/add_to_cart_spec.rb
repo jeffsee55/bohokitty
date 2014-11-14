@@ -39,6 +39,4 @@ describe "When adding a product to a cart" do
       end
     end
   end
-
-
 end

@@ -50,6 +50,7 @@ group :test do
   gem "shoulda-matchers", require: false
   gem "timecop"
   gem "webmock"
+  gem "stripe-ruby-mock"
 end
 
 group :staging, :production do
