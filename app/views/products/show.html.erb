@@ -4,8 +4,9 @@
 <hr>
 <h3><%= @product.human_price %></h3>
 
-<%= simple_form_for @cart_product do |f| %>
-  <%= email_field_tag :email, current_customer.try(:email), placeholder: "Email" %>
-  <%= f.input :product_id, as: :hidden, input_html: { value: @product.id } %>
-  <%= f.submit 'Add to Cart' %>
+<% if cart_session %>
+  <%= button_to "Add to Cart", add_item_path(product_id: @product.id, qty: 1) %>
+<% else %>
+  <%= button_to "Add to Cart", cart_session_path(product_id: @product.id, qty: 1) %>
 <% end %>
+<%= button_to "Empty Cart", empty_cart_path, method: :delete %>

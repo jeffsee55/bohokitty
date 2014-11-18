@@ -42,8 +42,6 @@ describe "When trying to make a charge" do
         )
         expect(stripe_customer.email).to eq(customer.email)
       end
-
-
     end
   end
 

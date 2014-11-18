@@ -1,0 +1,12 @@
+<ul>
+  <% @products.each do |product| %>
+      <li>
+        <%= "#{product[0].name} - Qty: #{product[1]}" %>
+        <%= button_to "+", add_item_path(product_id: product[0], qty: 1) %>
+        <%= button_to "-", remove_item_path(product_id: product[0], qty: 1) %>
+        <%= button_to "Remove Item", remove_item_path(product_id: product[0], qty: product[1]) %>
+      </li>
+  <% end %>
+</ul>
+<%= button_to "Empty Cart", empty_cart_path, method: :delete %>
+<%= button_to "Proceed to Checkout", new_charge_path, method: :get %>

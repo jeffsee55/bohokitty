@@ -1,5 +1,9 @@
-<%= @customer.email %>
-<hr>
-<%= @card_info.last4 %>
-<%= @charge.cart.total %>
-<%= @card_info.address_line1 %>
+<%= @stripe_charge %>
+<ul>
+  <li><%= @amount %></li>
+  <li><%= @stripe_charge.card.address_line1 %></li>
+  <li><%= @stripe_charge.card.address_line2 %></li>
+  <li><%= @stripe_charge.card.address_city %></li>
+  <li><%= @stripe_charge.card.address_state %></li>
+  <li><%= @stripe_charge.card.address_zip %></li>
+</ul>

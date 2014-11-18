@@ -1,7 +1,0 @@
-<ul>
-  <% @cart.products_count.each do |product, count| %>
-    <li><%= count %>-<%= product.name %></li>
-  <% end %>
-</ul>
-<hr>
-<%= link_to "Proceed to Checkout", new_charge_path(cart_id: @cart, customer_id: current_customer.id) %>

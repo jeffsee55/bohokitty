@@ -3,33 +3,39 @@ class ChargesController < ApplicationController
 
   def new
     @charge = Charge.new
-    @cart = Cart.find(params[:cart_id])
-    @customer = Customer.find(params[:customer_id])
+    if cart_session.total == 0
+      redirect_to products_path, notice: "You're cart is empty, add some items to proceed to checkout."
+    end
   end
 
   def create
     card = params[:stripe_token]
-    cart = Cart.find(charge_params[:cart_id])
-    customer = cart.customer
-    customer.add_stripe_token(card)
-    Stripe::Charge.create(
-      amount: cart.total,
+    amount = params[:amount]
+    email = charge_params[:email]
+    token = Stripe::Charge.create(
+      amount: amount,
       currency: "usd",
-      customer: customer.token,
-      description: "Charge for #{customer.email}"
+      card: card,
+      description: "Purchase from #{email}",
+      metadata: {
+        products:
+          cart_session.products.collect { |p| "#{p[0].name} (Qty: #{p[1]})" }.to_s,
+        total_products: cart_session.products.count,
+        statement_description: "Purchase from BohoKitty.com"
+      }
     )
     @charge = Charge.create(
-      token: card,
-      customer_id: customer.id,
-      cart_id: cart.id
+      token: token.id,
+      email: email,
+      amount: amount
     )
-    cart.remove_products
+    cart_session.empty_cart
     redirect_to @charge
   end
 
   def show
-    @customer = @charge.customer
-    @card_info = Stripe::Token.retrieve(@charge.token).card
+    @charge
+    @stripe_charge = Stripe::Charge.retrieve(@charge.token)
   end
 
   private
@@ -38,6 +44,6 @@ class ChargesController < ApplicationController
     end
 
     def charge_params
-      params.require(:charge).permit(:cart_id)
+      params.require(:charge).permit(:amount, :email)
     end
 end

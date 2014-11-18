@@ -13,7 +13,6 @@
 <body class="<%= body_class %>">
   <%= render "navigation" %>
   <%= debug params %>
-  <%= "Current customer - #{current_customer.email}" if current_customer %> <br>
   <%= render "flashes" -%>
   <div class="wrapper">
     <%= yield %>

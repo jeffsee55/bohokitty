@@ -3,6 +3,10 @@
     <ul>
       <li><%= link_to "Dashboard", admin_root_path %></li>
       <li><%= link_to "Shop", products_path %></li>
+      <li>
+        <%= link_to "Cart - #{cart_session.products.count}", cart_path %>
+        <%=  %>
+      </li>
     </ul>
   </div>
 </div>

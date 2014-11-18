@@ -1,10 +1,10 @@
-ActiveAdmin.register Post do
+ActiveAdmin.register Charge do
 
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :title, :body, :page
+  # permit_params :list, :of, :attributes, :on, :model
   #
   # or
   #
@@ -14,14 +14,5 @@ ActiveAdmin.register Post do
   #   permitted
   # end
 
-  form do |f|
-    f.inputs "Content" do
-      f.input :title
-      f.input :body
-    end
-    f.inputs "Page" do
-      f.input :page, as: :select, collection: ["Home", "About", "Contact"]
-    end
-    f.actions
-  end
+
 end
