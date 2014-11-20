@@ -27,6 +27,8 @@ gem "devise"
 gem "cancancan"
 gem 'activeadmin', github: 'activeadmin'
 gem 'stripe-rails'
+gem 'paperclip', '~> 4.2'
+gem 'font-awesome-sass'
 
 group :development do
   gem "spring"

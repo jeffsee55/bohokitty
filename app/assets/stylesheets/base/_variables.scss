@@ -1,8 +1,8 @@
 // Typography
 $sans-serif: 'Lato', $helvetica;
-$serif: $georgia;
+$serif: 'Amatic SC';
 $base-font-family: $sans-serif;
-$header-font-family: $base-font-family;
+$header-font-family: $serif;
 
 // Font Sizes
 $base-font-size: 1em;
@@ -22,6 +22,10 @@ $nav-vertical-padding: $nav-height / 3;
 $base-line-height: 1.5;
 $header-line-height: 1.25;
 
+// HR Margins
+$hr-top: 1em;
+$hr-bottom: 1em;
+
 // Other Sizes
 $base-border-radius: 3px;
 $base-spacing: $base-line-height * 1em;
@@ -35,12 +39,15 @@ $light-gray: #DDD;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
+$tope: #EFEFEF;
+$sand: #CACCC2;
+$charcoal: #636262;
 
 // Background Color
-$base-background-color: white;
+$base-background-color: $tope;
 
 // Font Colors
-$base-font-color: $dark-gray;
+$base-font-color: $charcoal;
 $base-accent-color: $blue;
 
 // Link Colors
@@ -68,3 +75,11 @@ $form-box-shadow: inset 0 1px 3px rgba(black,0.06);
 $form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color-focus, 5), 0.7);
 $form-font-size: $base-font-size;
 $form-font-family: $base-font-family;
+
+// Modal
+
+$modal-padding: 3em;
+$modal-background: $base-background-color;
+$modal-close-color: $light-gray;
+$modal-image-height: 135px;
+$modal-image-width: $modal-image-height;

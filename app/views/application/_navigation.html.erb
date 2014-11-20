@@ -1,11 +1,22 @@
 <div class="nav-wrapper">
   <div class="nav-container">
+    <div class="logo">
+    <%= link_to root_url do %>
+      <%= image_tag ('boho_kitty_logo.png') %>
+    <% end %>
+    </div>
     <ul>
-      <li><%= link_to "Dashboard", admin_root_path %></li>
-      <li><%= link_to "Shop", products_path %></li>
+      <li><h4><%= link_to "Dashboard", admin_root_path %></h4></li>
+      <li><h4><%= link_to "Collection", products_path %></h4></li>
+      <li><h4><%= link_to "About", about_path %></h4></li>
+      <li><h4><%= link_to "Contact", contact_path %></h4></li>
+      <li><h4><%= link_to "Real Brides", real_brides_path %></h4></li>
+      <li><h4><%= link_to "Inspiration", inspiration_path %></h4></li>
       <li>
-        <%= link_to "Cart - #{cart_session.products.count}", cart_path %>
-        <%=  %>
+        <h4>
+          <%= link_to "Cart - #{cart_session.products.count}", cart_path %>
+          <%=  %>
+        </h4>
       </li>
     </ul>
   </div>

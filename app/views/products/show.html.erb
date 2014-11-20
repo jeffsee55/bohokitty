@@ -1,12 +1,23 @@
-<h3><%= @product.name %></h3>
-<hr>
-<p><%= @product.description %></p>
-<hr>
-<h3><%= @product.human_price %></h3>
-
-<% if cart_session %>
-  <%= button_to "Add to Cart", add_item_path(product_id: @product.id, qty: 1) %>
-<% else %>
-  <%= button_to "Add to Cart", cart_session_path(product_id: @product.id, qty: 1) %>
+<% content_for :image do %>
+  <%= image_tag('bk_shoulders.jpg') %>
 <% end %>
-<%= button_to "Empty Cart", empty_cart_path, method: :delete %>
+
+<% content_for :heading do %>
+  <%= @product.name %>
+<% end %>
+
+<% content_for :body do %>
+  <%= @product.description %>
+<% end %>
+
+<% content_for :price do %>
+  <%= "$#{@product.human_price}" %>
+<% end %>
+
+<% content_for :buttons do %>
+  <% if cart_session %>
+    <%= button_to "ADD TO CART", add_item_path(product_id: @product.id, qty: 1), class: 'btn-black' %>
+  <% else %>
+    <%= button_to "ADD TO CART", cart_session_path(product_id: @product.id, qty: 1), class: 'btn-black' %>
+  <% end %>
+<% end %>

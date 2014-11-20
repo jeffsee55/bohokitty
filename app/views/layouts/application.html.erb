@@ -12,11 +12,8 @@
 </head>
 <body class="<%= body_class %>">
   <%= render "navigation" %>
-  <%= debug params %>
   <%= render "flashes" -%>
-  <div class="wrapper">
-    <%= yield %>
-  </div>
+  <%= yield %>
   <%= render "javascript" %>
 </body>
 </html>

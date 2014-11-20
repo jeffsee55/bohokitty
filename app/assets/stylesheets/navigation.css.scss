@@ -1,13 +1,27 @@
 .nav-wrapper {
-  background: $light-gray;
+  background: none;
+  clear: both;
+  .logo {
+    float: left;
+    position: relative;
+    img {
+      position: absolute;
+      height: 70px;
+      top: -$nav-vertical-padding / 1.2;
+    }
+  }
   .nav-container {
     @include outer-container();
     height: 80px;
     padding-top: $nav-vertical-padding;
     ul {
+      float: right;
       li {
         display: inline-block;
         margin: 0 10px;
+        a {
+          color: $charcoal;
+        }
       }
     }
   }

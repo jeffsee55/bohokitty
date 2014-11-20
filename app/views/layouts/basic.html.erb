@@ -1,0 +1,18 @@
+<%= render template: 'layouts/application' %>
+
+<div class="banner">
+  <div class="container">
+    <div class="image-box">
+      <%= yield :image %>
+    </div>
+    <div class="content">
+      <h1><%= yield :heading %></h1>
+      <hr>
+      <p><%= yield :body %></p>
+      <hr>
+      <h3><%= yield :price %></h3>
+      <hr>
+      <%= yield :buttons %>
+    </div>
+  </div>
+</div>

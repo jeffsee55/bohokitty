@@ -1,0 +1,22 @@
+.btn {
+  @extend button;
+}
+
+input.btn-black, .btn-black {
+  color: $charcoal;
+  border-color: lighten($charcoal, 25);
+  &:hover {
+    background: transparentize($charcoal, .80);
+    color: $charcoal;
+  }
+}
+
+input.btn-primary, .btn-primary {
+  color: $tope;
+  background-color: $charcoal;
+  border-color: lighten($tope, 25);
+  &:hover {
+    background: transparentize($charcoal, .20);
+    color: $tope;
+  }
+}

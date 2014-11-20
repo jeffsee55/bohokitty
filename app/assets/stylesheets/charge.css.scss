@@ -1,0 +1,182 @@
+.charge-modal {
+
+  .checkout-btn {
+    float: right;
+  }
+
+  label {
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+
+  label img {
+    $img-width: 300px;
+    border-radius: $img-width/2;
+    display: block;
+    max-width: $img-width;
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  .modal-open {
+  }
+
+  .modal-window { // overlay
+    @include transition(opacity .25s ease);
+    @include position(fixed, 0px 0px 0px 0px);
+    background: rgba(0,0,0, .85);
+    opacity: 0;
+    text-align: left;
+    visibility: hidden;
+    z-index: 99999999999;
+
+    .modal-bg {
+      @include position(absolute, 0px 0px 0px 0px);
+      cursor: pointer;
+    }
+  }
+
+  .modal-close {
+    @include position(absolute, ($modal-padding /2) ($modal-padding /2) null null);
+    @include size(1.5em);
+    cursor: pointer;
+    background: $modal-background;
+
+    &:after,
+    &:before {
+      @include position(absolute, 3px 3px 0 50%);
+      @include transform(rotate(45deg));
+      @include size(.15em 1.5em);
+      background: $modal-close-color;
+      content: '';
+      display: block;
+      margin: -3px 0 0 -1px;
+    }
+
+    &:hover:after,
+    &:hover:before {
+      background: darken($modal-close-color, 10);
+    }
+
+    &:before {
+      @include transform(rotate(-45deg));
+    }
+  }
+
+  .modal-inner {
+    @include transition(opacity .25s ease);
+    border-radius: $base-border-radius;
+    background: $modal-background;
+    margin: auto;
+    position: relative;
+    width: 95%;
+    margin-top: .6em;
+    .modal-header, .modal-footer {
+      padding: 20px;
+    }
+    .modal-footer {
+      height: 80px;
+      @include clearfix;
+      .float {
+        text-align: right;
+      }
+    }
+    .modal-card, .modal-shipping, .modal-confim, .modal-purchase {
+      @include transition(all, .5ms, ease-in-out);
+    }
+    .modal-card, .modal-confirm, .modal-purchase {
+      display: none;
+    }
+    .modal-purchase {
+      float: right;
+    }
+
+    @include media($medium-screen) {
+      width: 60%;
+      max-height: 60%;
+      margin-top: 10em;
+    }
+
+    @include media($large-screen) {
+      width: 50%;
+      margin-top: 10em;
+    }
+
+    .charge-fields {
+      width: 100%;
+      font-size: 1.3em;
+      overflow: hidden;
+      height: 250px;
+
+      .form-fields {
+        @include transition(all, .3s ease-in-out);
+        position: relative;
+      }
+
+      .credit-card, .shipping, .confirm {
+        width: 100%;
+        height: 250px;
+        padding: 20px;
+      }
+      .credit-card {
+        @include clearfix;
+        background: lighten($charcoal, 15);
+        height: 250px;
+        padding: 20px;
+        #credt_card_number {
+          @include span-columns(6)
+        }
+        #name, #charge_email {
+          @include span-columns(6);
+        }
+        #exp_month, #exp_year, #cvc {
+          @include span-columns(4);
+        }
+        #cvc {
+          @include omega();
+        }
+      }
+
+      .shipping {
+        background: $sand;
+        #address_line1 {
+          @include span-columns(9);
+        }
+        #address_line2 {
+          @include span-columns(3);
+          @include omega();
+        }
+        #address_city {
+          @include span-columns(6);
+        }
+        #address_state {
+          @include span-columns(2);
+        }
+        #address_zip {
+          @include span-columns(2);
+        }
+        #address_country {
+          @include span-columns(2);
+          @include omega();
+        }
+      }
+      .confirm {
+        background: lighten($charcoal, 25);
+        text-align: center;
+      }
+    }
+  }
+
+  .modal-state:checked + .modal-window {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal-state:checked + .modal-window .modal-inner {
+    top: 0;
+  }
+}
+
+// Based on code by Kasper Mikiewicz

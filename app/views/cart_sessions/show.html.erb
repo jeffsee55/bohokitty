@@ -1,12 +1,99 @@
-<ul>
+<% content_for :th do %>
+  <tr>
+    <th>Item</th>
+    <th>Quantity</th>
+    <th>Price</th>
+  </tr>
+<% end %>
+
+<% content_for :tr_items do %>
   <% @products.each do |product| %>
-      <li>
-        <%= "#{product[0].name} - Qty: #{product[1]}" %>
-        <%= button_to "+", add_item_path(product_id: product[0], qty: 1) %>
-        <%= button_to "-", remove_item_path(product_id: product[0], qty: 1) %>
-        <%= button_to "Remove Item", remove_item_path(product_id: product[0], qty: product[1]) %>
-      </li>
+    <tr>
+      <td><%= product[0].name %></td>
+      <td>
+        <%= button_to "+", add_item_path(product_id: product[0].id, qty: 1), class: 'btn-black' %>
+        <span style="display:inline-block; padding: 7px 10px 0 0;"><%= product[1] %></span>
+        <%= button_to "-", remove_item_path(product_id: product[0].id, qty: 1), class: 'btn-black' %>
+      </td>
+      <td><%= "$#{product[0].human_price * product[1]}" %></td>
+    </tr>
   <% end %>
-</ul>
-<%= button_to "Empty Cart", empty_cart_path, method: :delete %>
-<%= button_to "Proceed to Checkout", new_charge_path, method: :get %>
+<% end %>
+
+<% content_for :tr_footers do %>
+  <tr>
+    <td></td>
+    <td>Sub Total</td>
+    <td><%= "$#{cart_session.human_total}" %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Tax</td>
+    <td>$10.50</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Total</td>
+    <td><%= "$#{cart_session.human_total + 10.50}" %></td>
+  </tr>
+<% end %>
+
+<% content_for :buttons do %>
+  <div class="charge-modal">
+    <%= label_tag 'modal', 'Checkout', class: 'btn btn-black checkout-btn' %>
+    <input class="modal-state" id="modal" type="checkbox" />
+    <div class="modal-window">
+      <div class="modal-inner">
+        <label class="modal-close" for="modal"></label>
+        <div class="modal-header">
+          <h2><%= "Cart Total: $#{cart_session.human_total}" %></h2>
+        </div>
+        <%= simple_form_for @charge, html: { id: 'payment-form' } do |f| %>
+        <div class="charge-fields">
+          <div class="form-fields">
+            <div class="credit-card">
+                <%= text_field_tag :name, 'Jeff', placeholder: "Name" %>
+                <%= f.input :email, placeholder: "Email", label: false, input_html: { value: 'jeff@example.com' } %>
+                <%= text_field_tag :credit_card_number, '4242424242424242', name: nil, placeholder: 'Credit Card Number' %>
+                <%= text_field_tag :exp_month, '12', name: nil, placeholder: "Exp Month" %>
+                <%= text_field_tag :exp_year, '2019', name: nil, placeholder: "Exp Year" %>
+                <%= text_field_tag :cvc, '123', name: nil, placeholder: "CVC" %>
+            </div>
+            <div class="shipping">
+              <%= text_field_tag :address_line1, '421 Duncan' , name: nil, placeholder: "Address Line 1" %>
+              <%= text_field_tag :address_line2, '123' , name: nil, placeholder: "Address Line 2" %>
+              <%= text_field_tag :address_city, 'Greenville', name: nil, placeholder: "City" %>
+              <%= text_field_tag :address_state, 'SC', name: nil, placeholder: "State"  %>
+              <%= text_field_tag :address_zip, '12345', name: nil, placeholder: "Zip" %>
+              <%= text_field_tag :address_country, 'USA', name: nil, placeholder: "Country" %>
+              <%= hidden_field_tag :amount, cart_session.total %>
+              <hr>
+            </div>
+            <div class="confirm">
+              <h2>Confirm your purchase</h2>
+              <ul>
+                <% @products.each do |product| %>
+                  <li><%= "#{product[0].name} (#{product[1]}) - $#{product[0].human_price * product[1]}" %></li>
+                <% end %>
+              </ul>
+              <h2><%= "$#{cart_session.human_total}" %></h2>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="float">
+            <%= button_tag type: 'button', class: "modal-card btn-black" do %>
+              <i class="fa fa-arrow-right"></i>
+            <% end %>
+            <%= button_to "SHIPPING", "#", method: :get, class: "modal-shipping btn-black" %>
+            <%= button_to "REVIEW", "#", method: :get, class: "modal-confirm btn-black" %>
+            <%= f.submit "PURCHASE", class: "modal-purchase btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<% end %>

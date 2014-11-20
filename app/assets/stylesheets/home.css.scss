@@ -22,17 +22,6 @@
   }
 
   button, input[type="submit"] {
-    font-size: 1em;
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    background: none;
-    border: 1px solid white;
-    border-radius: 0px;
-    &:hover {
-      background: transparentize(white, 0.8)
-    }
   }
 
   .logo {

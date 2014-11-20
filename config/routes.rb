@@ -13,6 +13,11 @@ Rails.application.routes.draw do
   post 'add_item' => 'cart_sessions#add_item', as: 'add_item'
   post 'remove_item' => 'cart_sessions#remove_item', as: 'remove_item'
   delete 'empty_cart' => 'cart_sessions#destroy', as: 'empty_cart'
-  get '/' => 'high_voltage/pages#show', id: 'home'
+
+  root 'pages#home'
+  get '/about' => 'pages#about'
+  get '/contact' => 'pages#contact'
+  get '/real-brides' => 'pages#real_brides'
+  get '/inspiration' => 'pages#inspiration'
 
 end

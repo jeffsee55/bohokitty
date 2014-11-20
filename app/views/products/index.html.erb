@@ -1,7 +1,12 @@
-<h3>Products</h3>
-<hr>
-<ul>
-  <% @products.each do |item| %>
-    <li><%= link_to item.name, item %></li>
+<% content_for :heading do %>
+  Collection
+<% end %>
+
+<% content_for :grid_items do %>
+  <% [1, 2, 3, 4, 5, 6, 7, 8].each do |n| %>
+    <li class="grid-item">
+      <%= button_to "Miss Dunbar", product_path(Product.find(1)), method: :get %>
+      <%= image_tag "sq-#{n}.png" %>
+    </li>
   <% end %>
-</ul>
+<% end %>

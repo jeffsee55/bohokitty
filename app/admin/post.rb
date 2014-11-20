@@ -20,7 +20,7 @@ ActiveAdmin.register Post do
       f.input :body
     end
     f.inputs "Page" do
-      f.input :page, as: :select, collection: ["Home", "About", "Contact"]
+      f.input :page, as: :select, collection: ["Home", "About", "Contact", "Real Brides", "Inspiration"]
     end
     f.actions
   end

@@ -1,0 +1,22 @@
+.table-image {
+  @include span-columns(4);
+  position: relative;
+  height: 1px;
+  img {
+    position: absolute;
+  }
+}
+
+.table-container {
+  @include span-columns(8);
+  @include omega();
+}
+
+th, td {
+  border-bottom: 1px solid lighten($charcoal, 35);
+  text-align: right;
+}
+
+td form, td span {
+  float: right;
+}

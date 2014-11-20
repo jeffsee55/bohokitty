@@ -1,0 +1,26 @@
+.banner {
+  padding-top: 20px;
+  padding-bottom: 30px;
+  background: $sand;
+  .container {
+    @include outer-container;
+    position: relative;
+    h1 {
+      font-size: 5em;
+    }
+    .image-box {
+      @include span-columns(5);
+      position: relative;
+      height: 1px;
+      background: none;
+      img {
+        position: absolute;
+        top: 20px;
+        height: 320px;
+      }
+    }
+    .content {
+      @include span-columns(7);
+    }
+  }
+}

@@ -2,9 +2,21 @@ button,
 input[type="submit"] {
   @extend %button;
   @include appearance(none);
+  font-weight: 300;
   border: none;
   cursor: pointer;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+  font-size: 1em;
+  position: relative;
+  display: inline-block;
+  float: left;
+  background: none;
+  border: 1px solid white;
+  border-radius: 0px;
+  margin-right: 10px;
+  &:hover {
+    background: transparentize(white, 0.8)
+  }
 }

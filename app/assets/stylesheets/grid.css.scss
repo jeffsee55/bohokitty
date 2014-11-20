@@ -1,0 +1,13 @@
+.grid {
+  position: absolute;
+  .grid-item {
+    @include span-columns(3);
+    position: relative;
+    &:nth-child(4) {
+      @include omega();
+    }
+    img {
+      width: 100%;
+    }
+  }
+}
