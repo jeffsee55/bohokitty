@@ -4,7 +4,7 @@ ActiveAdmin.register Product do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :name, :description, :price
+  permit_params :name, :description, :price, :image
   #
   # or
   #
@@ -14,11 +14,12 @@ ActiveAdmin.register Product do
   #   permitted
   # end
 
-  form do |f|
+  form html: { multipart: true } do |f|
     f.inputs "New Product" do
       f.input :name
       f.input :description, hint: "Limit to 120 characters"
       f.input :price, hint: "In pennies. $300 should be listed as 30000"
+      f.input :image
     end
     f.actions
   end

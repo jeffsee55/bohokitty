@@ -26,6 +26,17 @@
       }
     }
   }
+}
+
+
+.home-nav-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  background: none;
+  clear: both;
   .home-nav-container {
     @include outer-container();
     height: 80px;
@@ -34,7 +45,7 @@
       text-align: center;
       li {
         display: inline-block;
-        margin: 0 10px;
+        margin-right: 15px;
         a {
           color: $tope;
         }

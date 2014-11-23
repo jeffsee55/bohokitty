@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @post = Post.where(page: "Home").last
-    @product =  Product.last;
+    @products =  Product.last(3);
   end
 
   def about
@@ -20,7 +20,7 @@ class PagesController < ApplicationController
 
   def inspiration
     @post = Post.where(page: "Inspiration").last
-    @instagram_recent = Instagram.user_recent_media(ENV['INSTAGRAM_USER_ID'], count: 32)
+    @instagram_recent = Instagram.user_recent_media(ENV['INSTAGRAM_USER_ID'], count: 33)
   end
 
   private

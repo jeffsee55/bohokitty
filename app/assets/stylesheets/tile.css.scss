@@ -2,7 +2,6 @@
   $hover-tile-height: 20em;
   background-size: cover;
   background-position: top;
-  border: 1px solid $base-border-color;
   height: $hover-tile-height;
   margin-bottom: $base-line-height;
   cursor: pointer;
@@ -26,8 +25,9 @@
 
   .hover-tile-visible {
     color: transparentize(white, .3);
+    @include background(linear-gradient(135deg, transparentize(#90799b, 0.8), transparentize(#5a9674, 0.8)));
     font-size: 2em;
-    font-weight: 200;
+    font-weight: 300;
     padding-top: 3.5em;
     text-align: center;
     h3 {
@@ -38,11 +38,16 @@
 
   .hover-tile-hidden {
     @include background(linear-gradient(45deg, transparentize(#5a3369, 0.3), transparentize(#1b5938, 0.3)));
-    h4 {
-      margin-bottom: .5em;
-    }
-    p {
-      color: transparentize(white, .3);
-    }
+    font-size: 2em;
+    font-weight: 300;
+    padding-top: 3.5em;
+    text-align: center;
+  }
+
+  .instagram-tile {
+    padding-top: 2em;
+    padding-left: 2em;
+    font-size: 1em;
+    text-align: left;
   }
 }

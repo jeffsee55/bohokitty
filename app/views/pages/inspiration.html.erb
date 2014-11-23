@@ -10,7 +10,7 @@
   <ul>
     <% @instagram_recent.each do |p| %>
       <li class="grid-item">
-        <%= image_tag p.images.standard_resolution.url %>
+        <%= render partial: 'shared/tile', locals: { resource: p } %>
       </li>
     <% end %>
   </ul>

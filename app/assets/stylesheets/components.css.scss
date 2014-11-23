@@ -20,3 +20,12 @@ input.btn-primary, .btn-primary {
     color: $tope;
   }
 }
+
+#flash {
+  @include flash($brick);
+  div {
+    @include outer-container();
+    padding: 10px 0;
+    color: $tope;
+  }
+}

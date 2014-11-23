@@ -5,7 +5,6 @@
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  top: -$nav-height;
   min-height: 700px;
   height: 100vh;
   .hero-wrapper {
@@ -30,16 +29,12 @@
 }
 
 .announcements {
-  padding: 15px;
-  @include clearfix;
-  .items li {
-    @include span-columns(3);
-    height: 100px;
-    &:nth-child(3) {
-      @include omega();
+  .items {
+    @include row(block);
+    li {
+      float: left;
+      display: block;
+      width: percentage(1/4);
     }
-  }
-  .news {
-    @include span-columns(3);
   }
 }
