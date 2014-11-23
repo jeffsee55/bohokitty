@@ -7,7 +7,11 @@
 <% end %>
 
 <% content_for :grid_items do %>
-  <% [1, 2, 3, 4, 5, 6, 7, 8].each do |n| %>
-    <li class="grid-item"><%= image_tag "sq-#{n}.png" %></li>
-  <% end %>
+  <ul>
+    <% @instagram_recent.each do |p| %>
+      <li class="grid-item">
+        <%= image_tag p.images.standard_resolution.url %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>

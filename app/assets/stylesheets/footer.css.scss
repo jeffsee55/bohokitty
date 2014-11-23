@@ -1,0 +1,18 @@
+.footer {
+  @include clearfix;
+  padding: 30px;
+  margin-top: 1000px;
+  background: $sand;
+  text-align: center;
+  img {
+    max-width: 200px;
+  }
+  .footer-left {
+    @include span-columns(3);
+    @include shift(3)
+  }
+  .footer-right {
+    @include span-columns(3);
+    @include omega();
+  }
+}

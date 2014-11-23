@@ -1,13 +1,16 @@
 .grid {
   position: absolute;
   .grid-item {
-    @include span-columns(3);
-    position: relative;
-    &:nth-child(4) {
-      @include omega();
+    @include media($large-screen) {
+      display: inline-block;
+      &:nth-child(4n) {
+        @include omega();
+      }
     }
+    position: relative;
     img {
       width: 100%;
     }
   }
+
 }

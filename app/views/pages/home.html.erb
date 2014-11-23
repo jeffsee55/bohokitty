@@ -1,3 +1,32 @@
-<div class="hero-wrapper logo"><%= image_tag('boho_kitty.png') %></div>
-<%= button_to 'Boho Kitty on Instagram'.upcase, 'http://www.instagram.com/boho_kitty', form: {target: '_blank'} %>
-<%= button_to 'Boho Kitty on Etsy'.upcase, 'http://www.instagram.com/boho_kitty', form: {target: '_blank'} %>
+<% content_for :hero do %>
+
+<div class="wrapper">
+  <div class="hero-wrapper">
+    <div class="content">
+      <%= image_tag('boho_kitty.png') %>
+      <div class="buttons">
+        <%= button_to 'Boho Kitty on Instagram'.upcase, 'http://www.instagram.com/boho_kitty', form: {target: '_blank'} %>
+        <%= button_to 'Boho Kitty on Etsy'.upcase, 'http://www.instagram.com/boho_kitty', form: {target: '_blank'} %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<% content_for :announcements do %>
+  <div class="announcements">
+    <div class="news">
+      <h3>Featured Products</h3>
+      <hr>
+      <p>This month's featured products come with a 15% discount.</p>
+    </div>
+
+    <ul class="items">
+      <% 3.times do  %>
+      <li>
+        <%= render partial: 'shared/tile', locals: { resource: @product } %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

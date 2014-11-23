@@ -1,8 +1,9 @@
 .nav-wrapper {
+  position: relative;
+  z-index: 100;
   background: none;
   clear: both;
   .logo {
-    float: left;
     position: relative;
     img {
       position: absolute;
@@ -21,6 +22,21 @@
         margin: 0 10px;
         a {
           color: $charcoal;
+        }
+      }
+    }
+  }
+  .home-nav-container {
+    @include outer-container();
+    height: 80px;
+    padding-top: $nav-vertical-padding;
+    ul {
+      text-align: center;
+      li {
+        display: inline-block;
+        margin: 0 10px;
+        a {
+          color: $tope;
         }
       }
     }

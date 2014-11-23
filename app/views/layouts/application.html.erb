@@ -11,9 +11,12 @@
 
 </head>
 <body class="<%= body_class %>">
-  <%= render "navigation" %>
+  <% if current_page? controller: "pages", action: "home" %>
+    <%= render 'home_navigation' %>
+  <% else %>
+    <%= render "navigation" %>
+  <% end %>
   <%= render "flashes" -%>
   <%= yield %>
-  <%= render "javascript" %>
 </body>
 </html>

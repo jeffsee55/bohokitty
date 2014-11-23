@@ -19,5 +19,4 @@ Rails.application.routes.draw do
   get '/contact' => 'pages#contact'
   get '/real-brides' => 'pages#real_brides'
   get '/inspiration' => 'pages#inspiration'
-
 end

@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @post = Post.where(page: "Home").last
+    @product =  Product.last;
   end
 
   def about
@@ -19,13 +20,16 @@ class PagesController < ApplicationController
 
   def inspiration
     @post = Post.where(page: "Inspiration").last
+    @instagram_recent = Instagram.user_recent_media(ENV['INSTAGRAM_USER_ID'], count: 32)
   end
 
   private
 
     def resolve_layout
       case action_name
-      when "home", "contact"
+      when "home"
+        "layouts/home"
+      when "contact"
         "layouts/basic"
       when "about", "real_brides"
         "layouts/basic-reverse"

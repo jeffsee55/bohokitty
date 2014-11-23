@@ -29,6 +29,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'stripe-rails'
 gem 'paperclip', '~> 4.2'
 gem 'font-awesome-sass'
+gem 'instagram'
 
 group :development do
   gem "spring"

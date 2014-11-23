@@ -4,7 +4,16 @@
 
 .grid-item {
   position: relative;
+  .shade {
+    z-index: 99;
+    position: absolute;
+    top: 0; right: 0; bottom: 5px; left: 0;
+    &:hover {
+      background: transparentize($charcoal, 0.5);
+    }
+  }
   .button_to {
+    z-index: 100;
     width: 50%;
     height: 25%;
     overflow: auto;
