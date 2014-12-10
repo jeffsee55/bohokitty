@@ -1,0 +1,12 @@
+= link_to resource do
+  - if current_page? controller: 'pages', action: 'inspiration'
+    - image = resource.images.standard_resolution.url
+  - else
+    - image = resource.image.url
+  .hover-tile-outer{:style => "background-image: url('#{image}')"}
+    .hover-tile-container
+      .hover-tile.hover-tile-visible
+      %div{:class => "hover-tile hover-tile-hidden #{'instagram-tile' if current_page? controller: 'pages', action: 'inspiration'}"}
+        %h3= resource.name.upcase if resource.respond_to?(:name)
+        = resource.caption.text if resource.respond_to?(:caption)
+        %h4= "$#{resource.human_price}" if resource.respond_to?(:human_price)

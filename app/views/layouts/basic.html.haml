@@ -1,0 +1,15 @@
+= render template: 'layouts/application'
+.banner
+  = yield :banner_bg
+  .container
+    .image-box
+      = yield :image
+    .content
+      %h1= yield :heading
+      %hr
+      %p= yield :body
+      %h3= yield :price
+      = yield :buttons
+.additional
+  = yield :additional
+= render template: 'layouts/footer'

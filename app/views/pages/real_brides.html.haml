@@ -1,0 +1,7 @@
+- @posts.each do |post|
+  - content_for :image do
+    = image_tag('bk_shoulders.jpg')
+  - content_for :heading do
+    = post.title
+  - content_for :body do
+    = post.body

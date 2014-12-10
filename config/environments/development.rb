@@ -27,6 +27,8 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+
+
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
@@ -36,4 +38,14 @@ Rails.application.configure do
   config.action_view.raise_on_missing_translations = true
 
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'example.com',
+    user_name:            'jeffsee.55@gmail.com',
+    password:             'Js281883!',
+    authentication:       'plain',
+    enable_starttls_auto: true  }
 end

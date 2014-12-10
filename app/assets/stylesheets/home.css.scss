@@ -1,28 +1,19 @@
 .wrapper {
   z-index: 1;
   position: relative;
-  @include background-image(linear-gradient(45deg, transparentize(#9b85a2, 0.4), transparentize(#69b991, 0.6)), url('shoes-f559b181bd3acc8ba415f79a76aa5d6f.png'));
+  @include background-image(linear-gradient(135deg, transparentize($medium-gray, 0.9), transparentize($medium-gray, 0.9)), url('bk-22.jpg'));
+  // @include filter(grayscale(100%));
   background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
   min-height: 700px;
   height: 100vh;
   .hero-wrapper {
     text-align: center;
     .content {
       position: relative;
-      top: 150px;
-      img {
-      }
-      .buttons {
-        margin: 0 auto;
-        display: block;
-        width: 550px;
-        height: 100px;
-        button, input[type="submit"] {
-          float: left;
-          width: 250px;
-        }
+      top: 300px;
+      h1 {
+        color: $tope;
+        font-size: 4em;
       }
     }
   }
@@ -35,6 +26,37 @@
       float: left;
       display: block;
       width: percentage(1/4);
+    }
+  }
+}
+
+.collection-box {
+  width: 50%;
+  height: 300px;
+  position: relative;
+  margin: 50px auto;
+  @include background(linear-gradient(135deg, transparentize($medium-gray, 0.2), transparentize($medium-gray, 0.9)), url('bk-96.jpg'));
+  background-position: bottom;
+  background-size: cover;
+  .box {
+    $box-height: 100px;
+    margin: auto;
+    height: $box-height;
+    width: 300px;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    border: 2px solid white;
+    h1 {
+      color: white;
+      padding-top: $box-height / 3;
+      font-size: 1.4em;
+      text-align: center;
+    }
+  }
+  &:hover {
+    background-size: cover;
+    .box {
+      background: transparentize(white, 0.8);
     }
   }
 }

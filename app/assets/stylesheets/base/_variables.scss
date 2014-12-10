@@ -1,6 +1,6 @@
 // Typography
 $sans-serif: 'Lato', $helvetica;
-$serif: 'Amatic SC';
+$serif: 'Lato';
 $base-font-family: $sans-serif;
 $header-font-family: $serif;
 
@@ -14,7 +14,7 @@ $h5-font-size: $base-font-size * 1.25;
 $h6-font-size: $base-font-size;
 
 // Navigation
-$nav-height: 80px;
+$nav-height: 100px;
 $nav-line-height: $nav-height;
 $nav-vertical-padding: $nav-height / 3;
 
@@ -40,9 +40,34 @@ $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
 $brick: #ec8b6f;
+$mint: #87bf9a;
 $tope: #EFEFEF;
 $sand: #CACCC2;
 $charcoal: #636262;
+
+// Gradient Colors
+$gradient-purple: #bb4bae;
+$gradient-green: #68b670;
+$gradient-mint: #96c2ac;
+$gradient-red: #cd775c;
+$gradient-blue: #454b73;
+$gradient-orange: #e68b57;
+$gradient-yellow: #e4e73e;
+
+$gradient-colors:
+  $gradient-purple,
+  $gradient-green,
+  $gradient-mint,
+  $gradient-red,
+  $gradient-yellow,
+  $gradient-orange,
+  $gradient-purple,
+  $gradient-green,
+  $gradient-red,
+  $gradient-yellow,
+  $gradient-orange,
+  $gradient-mint,
+  $gradient-blue;
 
 // Background Color
 $base-background-color: $tope;

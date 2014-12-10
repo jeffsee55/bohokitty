@@ -23,9 +23,30 @@ input.btn-primary, .btn-primary {
 
 #flash {
   @include flash($brick);
-  div {
+  #flash_alert {
     @include outer-container();
     padding: 10px 0;
     color: $tope;
   }
+  #flash_notice {
+    @include outer-container();
+    padding: 10px 0;
+    color: $tope;
+  }
+}
+
+.poster {
+  @include background(url('bk-193.jpg'));
+  height: 600px;
+  background-size: cover;
+}
+
+.poster-thin {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.spacer {
+  height: $nav-height;
 }

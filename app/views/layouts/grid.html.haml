@@ -1,0 +1,10 @@
+= render template: 'layouts/application'
+.banner
+  = yield :banner_bg
+  .container
+    %h2= yield :heading
+    %hr/
+    %p= yield :body
+    %ul.grid
+      = yield :grid_items
+= render template: 'layouts/footer'

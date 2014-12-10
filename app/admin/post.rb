@@ -1,11 +1,9 @@
 ActiveAdmin.register Post do
 
-
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
   permit_params :title, :body, :page
-  #
   # or
   #
   # permit_params do
@@ -17,7 +15,8 @@ ActiveAdmin.register Post do
   form do |f|
     f.inputs "Content" do
       f.input :title
-      f.input :body
+      f.input :body, input_html: {class: "text_area"}
+
     end
     f.inputs "Page" do
       f.input :page, as: :select, collection: ["Home", "About", "Contact", "Real Brides", "Inspiration"]

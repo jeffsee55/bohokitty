@@ -1,0 +1,18 @@
+.nav-wrapper
+  .nav-container
+    .nav-logo
+      =link_to root_url do
+        =embed_svg "svg/bk_logo.svg", class: "logo"
+        %h4.logo-text B O H O K I T T Y
+    %ul
+      %li
+        %h5= link_to "ABOUT", about_path
+      %li
+        %h5= link_to "COLLECTION", products_path
+      %li
+        %h5= link_to "INSPIRATION", inspiration_path
+      %li
+        %h5= link_to "CONTACT", contact_path
+      %li
+        %h5= link_to "CART - #{cart_session.cart_count}", cart_path
+  = render "flashes"

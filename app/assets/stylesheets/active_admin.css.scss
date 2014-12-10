@@ -43,6 +43,13 @@ $blank-slate-border: 1px dashed #DADADA !default;
 @import "active_admin/base";
 @import "admin/components";
 
+$skinLogo: url("boho_kitty_admin.png") no-repeat 0 0;
+$skinActiveColor: #86beb9;
+$skinHeaderBck: #86beb9;
+$panelHeaderBck: #ec8c75;
+@import "active_skin";
+
+
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //

@@ -1,0 +1,29 @@
+- content_for :banner_bg do
+  .spacer
+- content_for :image do
+  = image_tag @product.image.url
+- content_for :heading do
+  = @product.name
+- content_for :body do
+  = @product.description
+- content_for :price do
+  = "$#{@product.human_price}"
+- content_for :buttons do
+  - if cart_session
+    = button_to "ADD TO CART", add_item_path(product_id: @product.id, qty: 1, ribbon_color: "blue"), class: 'btn-black'
+  - else
+    = button_to "ADD TO CART", cart_session_path(product_id: @product.id, qty: 1), class: 'btn-black'
+- content_for :additional do
+  %p
+    When purchasing this product please leave a note in the sellers box stating your
+    choice of ribbon color and any other modifications you would like. Although we
+    encourage customization of our BK pieces to suit your needs, we will not copy any
+    other outside designs.
+  %p
+    Because all BK designs are handmade and develop organically, patterns may vary
+    slightly but will look very similar to the piece in photos. This enhances the free-
+    spirited nature of the BK brand, and ensures our customers a true one of a kind
+    piece.
+  %p
+    If you are an instagrammer please you the hashtag #bohokittybride – we would love
+    to see your wedding pics!

@@ -1,0 +1,11 @@
+- content_for :banner_bg do
+  .spacer
+- content_for :heading do
+  = @post.title
+- content_for :body do
+  = @post.body
+- content_for :grid_items do
+  %ul
+    - @instagram_recent.each do |p|
+      %li.grid-item.instagram
+        = render partial: 'shared/tile', locals: { resource: p }

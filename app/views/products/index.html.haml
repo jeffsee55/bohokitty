@@ -1,0 +1,8 @@
+- content_for :banner_bg do
+  .poster
+- content_for :heading do
+  COLLECTION
+- content_for :grid_items do
+  - @products.each do |p|
+    %li.grid-item
+      = render partial: 'shared/tile', locals: { resource: p }

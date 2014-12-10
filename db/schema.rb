@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141123191948) do
+ActiveRecord::Schema.define(version: 20141206123749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,20 @@ ActiveRecord::Schema.define(version: 20141123191948) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "assets", force: true do |t|
+    t.string   "storage_uid"
+    t.string   "storage_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "storage_width"
+    t.integer  "storage_height"
+    t.float    "storage_aspect_ratio"
+    t.integer  "storage_depth"
+    t.string   "storage_format"
+    t.string   "storage_mime_type"
+    t.string   "storage_size"
+  end
 
   create_table "cart_products", force: true do |t|
     t.integer  "cart_id"
@@ -112,6 +126,35 @@ ActiveRecord::Schema.define(version: 20141123191948) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "redactor_assets", force: true do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "redactor_assets", ["assetable_type", "assetable_id"], name: "idx_redactor_assetable", using: :btree
+  add_index "redactor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_redactor_assetable_type", using: :btree
+
+  create_table "rich_rich_files", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "rich_file_file_name"
+    t.string   "rich_file_content_type"
+    t.integer  "rich_file_file_size"
+    t.datetime "rich_file_updated_at"
+    t.string   "owner_type"
+    t.integer  "owner_id"
+    t.text     "uri_cache"
+    t.string   "simplified_type",        default: "file"
   end
 
 end

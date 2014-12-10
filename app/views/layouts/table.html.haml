@@ -1,0 +1,17 @@
+= render template: 'layouts/application'
+.banner
+  = yield :banner_bg
+  .container
+    .table-image
+      = image_tag ('cat.jpg')
+    .table-container
+      %h1 Cart
+      %hr/
+      %table.table-minimal
+        %thead
+          = yield :th
+        %tbody
+          = yield :tr_items
+          = yield :tr_footers
+      = yield :buttons
+= render template: 'layouts/footer'

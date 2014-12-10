@@ -15,7 +15,7 @@ class PagesController < ApplicationController
   end
 
   def real_brides
-    @post = Post.where(page: "Real Brides").last
+    @posts = Post.where(page: "Real Brides")
   end
 
   def inspiration

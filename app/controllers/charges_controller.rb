@@ -1,5 +1,6 @@
 class ChargesController < ApplicationController
   before_action :set_charge, only: [:show]
+  layout 'layouts/basic', only: :show
 
   def new
     @charge = Charge.new
@@ -21,6 +22,7 @@ class ChargesController < ApplicationController
         products:
           cart_session.products.collect { |p| "#{p[0].name} (Qty: #{p[1]})" }.to_s,
         total_products: cart_session.products.count,
+        special_instructions: params[:instructions],
         statement_description: "Purchase from BohoKitty.com"
       }
     )

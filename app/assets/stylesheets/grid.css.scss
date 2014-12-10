@@ -1,24 +1,39 @@
 .grid {
   @include row(block);
   .grid-item {
+    float: left;
+    display: block;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    @include media($medium-screen) {
+      width: percentage(1/2);
+    }
     @include media($large-screen) {
-      float: left;
-      display: block;
-      width: percentage(1/3);
-      .button_to {
-        z-index: 100;
-        width: 50%;
-        height: 25%;
-        overflow: auto;
-        margin: auto;
-        position: absolute;
-        top: 0; left: 0; bottom: 0; right: 0;
+      @include span-columns(6);
+      &:nth-child(even) {
+        @include omega;
       }
     }
-    position: relative;
-    img {
-      width: 100%;
+    .button_to {
+      z-index: 100;
+      width: 50%;
+      height: 25%;
+      overflow: auto;
+      margin: auto;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
     }
   }
-
+  .instagram {
+    @include media($medium-screen) {
+      width: percentage(1/2);
+      float: left;
+    }
+    @include media($large-screen) {
+      width: percentage(1/3);
+      float: left;
+      margin: 0;
+    }
+  }
 }

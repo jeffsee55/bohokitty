@@ -30,10 +30,15 @@ gem 'stripe-rails'
 gem 'paperclip', '~> 4.2'
 gem 'font-awesome-sass'
 gem 'instagram'
+gem 'active_skin'
+gem "wysiwyg-rails"
+gem "haml"
+gem "haml-rails"
 
 group :development do
   gem "spring"
   gem "spring-commands-rspec"
+  gem "erb2haml"
 end
 
 group :development, :test do

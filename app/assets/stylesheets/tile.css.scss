@@ -9,10 +9,7 @@
   .hover-tile-container {
     height: $hover-tile-height;
     overflow: hidden;
-  }
-
-  .hover-tile-container:hover > .hover-tile {
-    @include transform(translate(0, -100%));
+    position: relative;
   }
 
   .hover-tile {
@@ -37,11 +34,17 @@
   }
 
   .hover-tile-hidden {
-    @include background(linear-gradient(45deg, transparentize(#5a3369, 0.3), transparentize(#1b5938, 0.3)));
-    font-size: 2em;
+    @include transition(all 0.2s ease-in-out);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    @include filter(opacity(0));
+    font-size: 1.5em;
     font-weight: 300;
-    padding-top: 3.5em;
+    padding-top: 4em;
     text-align: center;
+    color: $charcoal;
+    @include background(linear-gradient(135deg, transparentize(#d7d3d6, 0.2), transparentize(#edeced, 0.2)));
   }
 
   .instagram-tile {
@@ -50,4 +53,8 @@
     font-size: 1em;
     text-align: left;
   }
+}
+
+.hover-tile-container:hover > .hover-tile-hidden {
+  @include filter(opacity(1))
 }

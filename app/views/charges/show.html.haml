@@ -1,0 +1,23 @@
+-content_for :banner_bg do
+  %div.products-poster-thin{:style => "background: url('bk-197.jpg')"}
+- content_for :image do
+  =image_tag "bk-161.jpg"
+- content_for :heading do
+  Order Summary
+- content_for :body do
+  %p
+    Thank you for your purchase - a confirmation email was sent to #{@charge.email}
+  %ul
+    %li= "#{@stripe_charge.metadata.products}"
+  %ul
+    %li= "$#{@charge.human_total}"
+    Address:
+    %li= "#{@stripe_charge.card.address_line1} - #{@stripe_charge.card.address_line2}"
+    %li= "#{@stripe_charge.card.address_city}, #{@stripe_charge.card.address_state} "
+    %li= @stripe_charge.card.address_zip
+- content_for :price do
+  Price
+- content_for :buttons do
+  Buttons
+- content_for :additional do
+  Additional

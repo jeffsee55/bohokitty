@@ -13,6 +13,8 @@ $ ->
     $('.modal-confirm').hide()
     $('.modal-purchase').hide()
     $('.modal-shipping').show()
+    $('.modal-shipping .back').hide()
+    $('.modal-shipping .forward').show()
   $('.modal-confirm').click (e) ->
     e.preventDefault()
     $('.form-fields').css('top', '-500px')
@@ -20,3 +22,5 @@ $ ->
     $('.modal-card').hide()
     $('.modal-purchase').show()
     $('.modal-shipping').show()
+    $('.modal-shipping .back').show()
+    $('.modal-shipping .forward').hide()

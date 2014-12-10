@@ -1,55 +1,44 @@
 .nav-wrapper {
-  position: relative;
+  position: absolute;
   z-index: 100;
-  background: none;
+  background: transparentize($tope, 0.4);
   clear: both;
-  .logo {
-    position: relative;
-    img {
-      position: absolute;
-      height: 70px;
-      top: -$nav-vertical-padding / 1.2;
-    }
-  }
+  left: 0; right: 0;
   .nav-container {
+    width: 100%;
     @include outer-container();
-    height: 80px;
+    height: $nav-height;
     padding-top: $nav-vertical-padding;
+    .nav-logo {
+      position: relative;
+      .logo-text {
+        float: left;
+        padding-left: 70px;
+      }
+      .logo {
+        position: absolute;
+        height: 90px;
+        top: -$nav-vertical-padding / 1.2;
+        path, text {
+          fill: $charcoal;
+        }
+      }
+    }
     ul {
       float: right;
       li {
         display: inline-block;
-        margin: 0 10px;
+        padding-left: 40px;
+        &:first-child {
+          padding-left: 0
+        }
         a {
           color: $charcoal;
         }
       }
     }
   }
-}
-
-
-.home-nav-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 100;
-  background: none;
-  clear: both;
-  .home-nav-container {
-    @include outer-container();
-    height: 80px;
-    padding-top: $nav-vertical-padding;
-    ul {
-      text-align: center;
-      li {
-        display: inline-block;
-        margin-right: 15px;
-        a {
-          color: $tope;
-        }
-      }
-    }
+  &:hover {
+    background: transparentize($tope, 0.2);
   }
 }

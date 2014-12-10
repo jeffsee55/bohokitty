@@ -85,6 +85,9 @@
     }
     .modal-card, .modal-shipping, .modal-confim, .modal-purchase {
       @include transition(all, .5ms, ease-in-out);
+      .back {
+        display: none;
+      }
     }
     .modal-card, .modal-confirm, .modal-purchase {
       display: none;
