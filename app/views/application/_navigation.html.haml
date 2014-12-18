@@ -4,7 +4,9 @@
       =link_to root_url do
         =embed_svg "svg/bk_logo.svg", class: "logo"
         %h4.logo-text B O H O K I T T Y
-    %ul
+    %a.nav-button
+      %i.fa.fa-2x.fa-navicon
+    %ul.nav-list
       %li
         %h5= link_to "ABOUT", about_path
       %li

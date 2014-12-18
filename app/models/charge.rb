@@ -4,4 +4,8 @@ class Charge < ActiveRecord::Base
     amount / 100
   end
 
+  def add_details
+    # Get these from the cart session
+  end
+
 end

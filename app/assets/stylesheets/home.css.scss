@@ -31,25 +31,27 @@
 }
 
 .collection-box {
-  width: 50%;
   height: 300px;
   position: relative;
   margin: 50px auto;
-  @include background(linear-gradient(135deg, transparentize($medium-gray, 0.2), transparentize($medium-gray, 0.9)), url('bk-96.jpg'));
-  background-position: bottom;
+  @include background(url('bk-178.jpg'));
+  background-position:left 80%;
   background-size: cover;
+  @include media($medium-screen) {
+    width: 50%;
+  }
   .box {
     $box-height: 100px;
     margin: auto;
     height: $box-height;
-    width: 300px;
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
     border: 2px solid white;
+    width: 300px;
     h1 {
       color: white;
       padding-top: $box-height / 3;
-      font-size: 1.4em;
+      font-size: 2em;
       text-align: center;
     }
   }

@@ -1,8 +1,13 @@
 - content_for :banner_bg do
-  .poster
+  .poster(style="background:url( '/assets/bk-161.jpg') no-repeat center")
 - content_for :image do
-  = image_tag 'bk_shoulders.jpg'
+  = image_tag 'bk-150.jpg'
 - content_for :heading do
-  = @post.title
+  = @post.title.upcase
 - content_for :body do
   = @post.body
+  %hr
+  = text_field_tag :name, nil, placeholder: "NAME"
+  = email_field_tag :email, nil, placeholder: "EMAIL"
+  = text_area_tag :message, nil, placeholder: "MESSAGE", rows: 5
+  = button_to "SUBMIT", "", class: "btn-black"

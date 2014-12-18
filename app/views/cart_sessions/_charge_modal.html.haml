@@ -1,0 +1,58 @@
+.charge-modal
+  = button_to "Empty Cart", empty_cart_path, method: :delete, class: "btn-black"
+  = label_tag 'modal', 'Checkout', class: 'btn btn-black checkout-btn'
+  %input#modal.modal-state{:type => "checkbox"}/
+  .modal-window
+    .modal-inner
+      %label.modal-close{:for => "modal"}
+      .modal-header
+        %h2= "Cart Total: $#{cart_session.human_total}"
+      = simple_form_for @charge, html: { id: 'payment-form' } do |f|
+        .charge-fields
+          .form-fields
+            .credit-card
+              = text_field_tag :name, 'Jeff', placeholder: "Name"
+              = f.input :email, placeholder: "Email", label: false, input_html: { value: 'jeffsee.55@gmail.com' }
+              = text_field_tag :credit_card_number, '4242424242424242', name: nil, placeholder: 'Credit Card Number'
+              = text_field_tag :exp_month, '12', name: nil, placeholder: "Exp Month"
+              = text_field_tag :exp_year, '2019', name: nil, placeholder: "Exp Year"
+              = text_field_tag :cvc, '123', name: nil, placeholder: "CVC"
+            .shipping
+              = text_field_tag :address_line1, '421 Duncan' , name: nil, placeholder: "Address Line 1"
+              = text_field_tag :address_line2, '123' , name: nil, placeholder: "Address Line 2"
+              = text_field_tag :address_city, 'Greenville', name: nil, placeholder: "City"
+              = text_field_tag :address_state, 'SC', name: nil, placeholder: "State"
+              = text_field_tag :address_zip, '12345', name: nil, placeholder: "Zip"
+              = text_field_tag :address_country, 'USA', name: nil, placeholder: "Country"
+              = hidden_field_tag :amount, cart_session.total
+              %hr/
+            .details
+              = text_field_tag :instructions, nil, placeholder: "Special Instructions", rows: 2
+            .confirm
+              %h4 Confirm your purchase
+              %ul
+                - cart_session.products_to_list.each do |item|
+                  %li= item
+        .modal-footer
+          .float
+            = button_tag type: 'button', class: "modal-card btn-black" do
+              %i.fa.fa-angle-double-left
+              CARD
+            = button_tag type: 'button', class: "modal-shipping btn-black" do
+              %span.back
+                %i.fa.fa-angle-double-left
+                SHIPPING
+              %span.forward
+                SHIPPING
+                %i.fa.fa-angle-double-right
+            = button_tag type: 'button', class: "modal-details btn-black" do
+              %span.back
+                %i.fa.fa-angle-double-left
+                ADDITIONAL
+              %span.forward
+                ADDITIONAL
+                %i.fa.fa-angle-double-right
+            = button_tag type: 'button', class: "modal-confirm btn-black" do
+              CONFIRM
+              %i.fa.fa-angle-double-right
+            = f.submit "PURCHASE", class: "modal-purchase btn-primary"

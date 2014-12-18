@@ -14,5 +14,13 @@ ActiveAdmin.register Charge do
   #   permitted
   # end
 
-
+  index do
+    selectable_column
+    column :id
+    column :email
+    column :token do |charge|
+      charge.token
+    end
+    actions
+  end
 end

@@ -41,11 +41,12 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
+    address:              'smtp.mandrillapp.com',
     port:                 587,
-    domain:               'example.com',
-    user_name:            'jeffsee.55@gmail.com',
-    password:             'Js281883!',
+    domain:               'bohokitty.com',
+    user_name:            'heidi@bohokitty.com',
+    password:             ENV['MANDRILL_APIKEY'],
     authentication:       'plain',
-    enable_starttls_auto: true  }
+    enable_starttls_auto: true
+  }
 end

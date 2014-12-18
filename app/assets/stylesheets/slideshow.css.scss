@@ -1,0 +1,61 @@
+
+.slideshow {
+  height: 500px;
+  width: 100%;
+  cursor: pointer;
+  .main {
+    @include transition(all 0.3s ease);
+    position: relative;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
+    &:hover .left, &:hover .right {
+      display: block;
+    }
+    .left, .right {
+      @include transition(all 0.5s ease-in-out);
+      position: absolute;
+      display: none;
+      cursor: pointer;
+      width: 4em;
+      height: 100%;
+      i {
+        position: relative;
+        top: 45%;
+        color: white;
+      }
+    }
+    .left {
+      left: 0;
+      i {
+        left: 40%;
+      }
+    }
+    .right {
+      right: 0;
+      i {
+        right: -40%;
+      }
+    }
+  }
+  .thumbs {
+    float: left;
+    margin-top: 10px;
+    height: 100px;
+    width: 100%;
+    li {
+      @include span-columns(3);
+      background-size: cover;
+      float: left;
+      height: 100px;
+      box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
+      &:hover {
+        @include filter(opacity(0.5));
+      }
+      &:last-child {
+        @include omega();
+      }
+    }
+  }
+}

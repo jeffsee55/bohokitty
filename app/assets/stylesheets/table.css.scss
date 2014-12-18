@@ -1,15 +1,24 @@
 .table-image {
   @include span-columns(4);
+  display: none;
   position: relative;
   height: 1px;
-  img {
-    position: absolute;
+  @include media($large-screen) {
+    display: block;
+  }
+  li {
+    @include span-columns(6);
+    &:nth-child(even) {
+      @include omega;
+    }
   }
 }
 
 .table-container {
-  @include span-columns(8);
   @include omega();
+  @include media($large-screen) {
+    @include span-columns(8);
+  }
 }
 
 th, td {
@@ -19,4 +28,8 @@ th, td {
 
 td form, td span {
   float: right;
+}
+
+.qty {
+  margin-top: 7px;
 }

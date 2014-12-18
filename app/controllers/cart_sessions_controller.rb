@@ -15,13 +15,24 @@ class CartSessionsController < ApplicationController
   end
 
   def add_item
-    cart_session.add_product(params[:product_id], params[:qty])
-    product = Product.find(params[:product_id])
-    redirect_to :back, notice: "#{product.name.titleize} has been added to your cart"
+    cart_session.add_product(
+      params[:product_name],
+      params[:product_id],
+      params[:product_price],
+      params[:qty],
+      ribbon_color: params[:ribbon_color],
+    )
+    redirect_to :back, notice: "#{params[:product_name].titleize} has been added to your cart"
   end
 
   def remove_item
-    cart_session.remove_product(params[:product_id], params[:qty])
+    cart_session.remove_product(
+      params[:product_name],
+      params[:product_id],
+      params[:product_price],
+      params[:qty],
+      ribbon_color: params[:ribbon_color]
+    )
     redirect_to :back
   end
 

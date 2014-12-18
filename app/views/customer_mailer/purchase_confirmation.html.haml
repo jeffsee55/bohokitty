@@ -1,0 +1,5 @@
+%h3 Thank you for your purchase, here are the details...
+%ul
+  %li= "Total: $#{@charge.human_total}"
+  - @charge.details.split(",").each do |item|
+    %li= item

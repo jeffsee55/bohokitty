@@ -42,11 +42,13 @@ $blank-slate-border: 1px dashed #DADADA !default;
 @import "active_admin/mixins";
 @import "active_admin/base";
 @import "admin/components";
+@import "base/variables";
 
-$skinLogo: url("boho_kitty_admin.png") no-repeat 0 0;
-$skinActiveColor: #86beb9;
-$skinHeaderBck: #86beb9;
-$panelHeaderBck: #ec8c75;
+$skinLogo: url("svg/bk_logo.svg") no-repeat center 0;
+$skinActiveColor: $charcoal;
+$skinHeaderBck: $charcoal;
+$panelHeaderBck: $sand;
+
 @import "active_skin";
 
 

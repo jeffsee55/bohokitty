@@ -1,23 +1,20 @@
 -content_for :banner_bg do
-  %div.products-poster-thin{:style => "background: url('bk-197.jpg')"}
+  .spacer
 - content_for :image do
   =image_tag "bk-161.jpg"
 - content_for :heading do
-  Order Summary
+  = "ORDER SUMMARY - $#{@charge.human_total}"
 - content_for :body do
   %p
     Thank you for your purchase - a confirmation email was sent to #{@charge.email}
   %ul
-    %li= "#{@stripe_charge.metadata.products}"
+    %li
+      %h4 ITEMS
+      - @charge.details.split(",").each do |item|
+        %li= item
+  %hr
   %ul
-    %li= "$#{@charge.human_total}"
-    Address:
+    %h4 SHIPPING ADDRESS
     %li= "#{@stripe_charge.card.address_line1} - #{@stripe_charge.card.address_line2}"
     %li= "#{@stripe_charge.card.address_city}, #{@stripe_charge.card.address_state} "
     %li= @stripe_charge.card.address_zip
-- content_for :price do
-  Price
-- content_for :buttons do
-  Buttons
-- content_for :additional do
-  Additional

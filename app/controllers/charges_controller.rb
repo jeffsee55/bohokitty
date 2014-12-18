@@ -19,8 +19,7 @@ class ChargesController < ApplicationController
       card: card,
       description: "Purchase from #{email}",
       metadata: {
-        products:
-          cart_session.products.collect { |p| "#{p[0].name} (Qty: #{p[1]})" }.to_s,
+        products: cart_session.products_to_string,
         total_products: cart_session.products.count,
         special_instructions: params[:instructions],
         statement_description: "Purchase from BohoKitty.com"
@@ -29,8 +28,10 @@ class ChargesController < ApplicationController
     @charge = Charge.create(
       token: token.id,
       email: email,
-      amount: amount
+      amount: amount,
+      details: cart_session.products_to_string
     )
+    CustomerMailer.purchase_confirmation(@charge).deliver
     cart_session.empty_cart
     redirect_to @charge
   end

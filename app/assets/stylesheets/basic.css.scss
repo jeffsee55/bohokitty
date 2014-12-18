@@ -1,0 +1,56 @@
+.banner {
+  padding-bottom: 30px;
+  background: $sand;
+  .container {
+    &:nth-of-type(div, 2) {
+      @include omega();
+    }
+    @include outer-container;
+    position: relative;
+    padding: 20px 10px 0 10px;
+    h2 {
+      font-size: 3em;
+    }
+    .image-box {
+      position: relative;
+      height: auto;
+      background: none;
+      img {
+        width: 70%;
+        margin-left: 15%;
+        position: relative;
+      }
+      @include media($medium-screen) {
+        @include span-columns(5);
+      };
+      @include media($medium-screen) {
+        @include span-columns(5);
+        height: 1px;
+        img {
+          position: absolute;
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+    }
+    .content {
+      padding: 15px;
+      @include media($medium-screen) {
+        @include span-columns(7);
+        padding: 0;
+      };
+    }
+  }
+}
+
+.additional {
+  @include outer-container;
+  .container {
+    border: 1px solid $sand;
+    padding: 15px;
+    margin: 20px 0;
+    @include media($medium-screen) {
+      @include shift(5);
+    }
+  }
+}

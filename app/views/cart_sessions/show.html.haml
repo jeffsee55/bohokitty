@@ -3,78 +3,50 @@
 - content_for :th do
   %tr
     %th Item
+    %th Details
     %th Quantity
     %th Price
 - content_for :tr_items do
-  - @products.each do |product|
+  - @products.each do |item|
     %tr
-      %td= product[0].name
+      %td= "#{item['product_name']}"
+      %td= "Ribbon: #{item['ribbon_color']}" unless item['ribbon_color'].nil?
       %td
-        = button_to "+", add_item_path(product_id: product[0].id, qty: 1), class: 'btn-black'
-        %span{:style => "display:inline-block; padding: 7px 10px 0 0;"}= product[1]
-        = button_to "-", remove_item_path(product_id: product[0].id, qty: 1), class: 'btn-black'
-      %td= "$#{product[0].human_price * product[1]}"
+        %span.qty= item["qty"]
+        = form_tag controller: "cart_sessions", action: "add_item" do
+          = hidden_field_tag :product_name, item["product_name"]
+          = hidden_field_tag :product_id, item["product_id"]
+          = hidden_field_tag :qty, 1
+          = hidden_field_tag :ribbon_color, item["ribbon_color"]
+          = button_tag class: "btn-black" do
+            %i.fa.fa-angle-double-up
+        = form_tag controller: "cart_sessions", action: "remove_item", class: "btn-black" do
+          = hidden_field_tag :product_name, item["product_name"]
+          = hidden_field_tag :product_id, item["product_id"]
+          = hidden_field_tag :qty, 1
+          = hidden_field_tag :ribbon_color, item["ribbon_color"]
+          = button_tag class: "btn-black" do
+            %i.fa.fa-angle-double-down
+      %td= "$#{item['product_price'].to_i / 100 }"
 - content_for :tr_footers do
   %tr
     %td
-    %td Sub Total
+    %td
+    %td
+      %strong Sub Total
     %td= "$#{cart_session.human_total}"
   %tr
     %td
-    %td Tax
+    %td
+    %td
+      %strong Tax
     %td $10.50
   %tr
     %td
-    %td Total
-    %td= "$#{cart_session.human_total + 10.50}"
+    %td
+    %td
+      %strong Total
+    %td
+      %strong= "$#{cart_session.human_total + 10.50}"
 - content_for :buttons do
-  .charge-modal
-    = label_tag 'modal', 'Checkout', class: 'btn btn-black checkout-btn'
-    %input#modal.modal-state{:type => "checkbox"}/
-    .modal-window
-      .modal-inner
-        %label.modal-close{:for => "modal"}
-        .modal-header
-          %h2= "Cart Total: $#{cart_session.human_total}"
-        = simple_form_for @charge, html: { id: 'payment-form' } do |f|
-          .charge-fields
-            .form-fields
-              .credit-card
-                = text_field_tag :name, 'Jeff', placeholder: "Name"
-                = f.input :email, placeholder: "Email", label: false, input_html: { value: 'jeff@example.com' }
-                = text_field_tag :credit_card_number, '4242424242424242', name: nil, placeholder: 'Credit Card Number'
-                = text_field_tag :exp_month, '12', name: nil, placeholder: "Exp Month"
-                = text_field_tag :exp_year, '2019', name: nil, placeholder: "Exp Year"
-                = text_field_tag :cvc, '123', name: nil, placeholder: "CVC"
-              .shipping
-                = text_field_tag :address_line1, '421 Duncan' , name: nil, placeholder: "Address Line 1"
-                = text_field_tag :address_line2, '123' , name: nil, placeholder: "Address Line 2"
-                = text_field_tag :address_city, 'Greenville', name: nil, placeholder: "City"
-                = text_field_tag :address_state, 'SC', name: nil, placeholder: "State"
-                = text_field_tag :address_zip, '12345', name: nil, placeholder: "Zip"
-                = text_field_tag :address_country, 'USA', name: nil, placeholder: "Country"
-                = hidden_field_tag :amount, cart_session.total
-                %hr/
-              .confirm
-                %h2 Confirm your purchase
-                %ul
-                  - @products.each do |product|
-                    %li= "#{product[0].name} (#{product[1]}) - $#{product[0].human_price * product[1]}"
-                %h2= "$#{cart_session.human_total}"
-                = text_field_tag :instructions, nil, placeholder: "Special Instructions"
-          .modal-footer
-            .float
-              = button_tag type: 'button', class: "modal-card btn-black" do
-                %i.fa.fa-angle-double-left
-                CARD
-              = button_tag type: 'button', class: "modal-shipping btn-black" do
-                %span.back
-                  %i.fa.fa-angle-double-left
-                  SHIPPING
-                %span.forward
-                  SHIPPING
-                  %i.fa.fa-angle-double-right
-              = button_tag type: 'button', class: "modal-confirm btn-black" do
-                CONFIRM
-                %i.fa.fa-angle-double-right
-              = f.submit "PURCHASE", class: "modal-purchase btn-primary"
+  = render "charge_modal", charge: @charge, products: @products

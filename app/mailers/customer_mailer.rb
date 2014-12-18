@@ -1,8 +1,10 @@
 class CustomerMailer < ActionMailer::Base
+  layout 'email'
   default from: "heidi@bohokitty.com"
 
   def purchase_confirmation(charge)
-    email = charge.email
-    mail(to: email, subject: "Purchase from BohoKitty")
+    @charge = charge
+
+    mail to: charge.email, subject: 'BohoKitty Purchase'
   end
 end

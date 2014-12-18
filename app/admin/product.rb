@@ -3,7 +3,7 @@ ActiveAdmin.register Product do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :name, :description, :price, :image
+  permit_params :name, :description, :price, images_attributes: :image
   #
   # or
   #
@@ -13,12 +13,22 @@ ActiveAdmin.register Product do
   #   permitted
   # end
 
+  index do
+    column :name
+    column :price
+    actions
+  end
+
   form html: { multipart: true } do |f|
     f.inputs "New Product" do
       f.input :name
       f.input :description, hint: "Limit to 500 characters"
       f.input :price, hint: "In pennies. $300 should be listed as 30000"
-      f.input :image
+      f.inputs do
+        f.has_many :images, allow_destroy: true do |i|
+          i.input :image
+        end
+      end
     end
     f.actions
   end

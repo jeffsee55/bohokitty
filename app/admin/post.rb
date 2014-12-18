@@ -12,6 +12,15 @@ ActiveAdmin.register Post do
   #   permitted
   # end
 
+  index do
+    column :title
+    column "body" do |desc|
+      desc.body.slice(0, 100)
+    end
+    column :page
+    actions
+  end
+
   form do |f|
     f.inputs "Content" do
       f.input :title

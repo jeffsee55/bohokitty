@@ -1,7 +1,7 @@
 - content_for :banner_bg do
   .spacer
 - content_for :heading do
-  = @post.title
+  = @post.title.upcase
 - content_for :body do
   = @post.body
 - content_for :grid_items do

@@ -34,6 +34,7 @@ gem 'active_skin'
 gem "wysiwyg-rails"
 gem "haml"
 gem "haml-rails"
+gem 'mandrill-api', '~> 1.0.53'
 
 group :development do
   gem "spring"

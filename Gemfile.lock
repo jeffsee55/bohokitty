@@ -117,6 +117,7 @@ GEM
     erb2haml (0.1.5)
       html2haml
     erubis (2.7.0)
+    excon (0.42.1)
     execjs (2.2.2)
     factory_girl (4.5.0)
       activesupport (>= 3.0.0)
@@ -198,6 +199,9 @@ GEM
       addressable (~> 2.3)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mandrill-api (1.0.53)
+      excon (>= 0.16.0, < 1.0)
+      json (>= 1.7.7, < 2.0)
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.0)
@@ -383,6 +387,7 @@ DEPENDENCIES
   instagram
   jquery-rails
   launchy
+  mandrill-api (~> 1.0.53)
   neat (~> 1.5.1)
   newrelic_rpm (>= 3.7.3)
   normalize-rails (~> 3.0.0)

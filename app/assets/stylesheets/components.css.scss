@@ -25,7 +25,7 @@ input.btn-primary, .btn-primary {
   @include flash($brick);
   #flash_alert {
     @include outer-container();
-    padding: 10px 0;
+    padding: 10px;
     color: $tope;
   }
   #flash_notice {
@@ -36,9 +36,7 @@ input.btn-primary, .btn-primary {
 }
 
 .poster {
-  @include background(url('bk-193.jpg'));
   height: 600px;
-  background-size: cover;
 }
 
 .poster-thin {

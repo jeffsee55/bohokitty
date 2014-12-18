@@ -2,7 +2,7 @@
   - if current_page? controller: 'pages', action: 'inspiration'
     - image = resource.images.standard_resolution.url
   - else
-    - image = resource.image.url
+    - image = resource.images.first.image.url if resource.images.present?
   .hover-tile-outer{:style => "background-image: url('#{image}')"}
     .hover-tile-container
       .hover-tile.hover-tile-visible

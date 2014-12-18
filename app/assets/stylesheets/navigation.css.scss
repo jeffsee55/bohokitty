@@ -24,16 +24,34 @@
         }
       }
     }
-    ul {
+    .nav-button {
       float: right;
+      margin-right: 20px;
+      @include media($large-screen) {
+        display: none;
+      }
+    }
+    .nav-list {
+      margin-top: 20px;
+      float: right;
+      display: none;
+      @include media($large-screen) {
+        margin-top: 0;
+        display: block;
+      }
       li {
-        display: inline-block;
-        padding-left: 40px;
+        padding: 0 15px 10px 0;
+        text-align:right;
         &:first-child {
           padding-left: 0
         }
         a {
           color: $charcoal;
+        }
+        @include media($large-screen) {
+          display: inline-block;
+          padding: 0 0 0 40px;
+          text-align: left;
         }
       }
     }

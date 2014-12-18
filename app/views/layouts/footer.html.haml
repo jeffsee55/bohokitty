@@ -1,5 +1,8 @@
 .footer.footer-top
-  = embed_svg 'svg/boho_kitty.svg', class: 'footer-logo'
+  = embed_svg 'svg/bk_logo.svg', class: 'footer-logo'
+  %br
+  %span.boho B O H O
+  %span.kitty K I T T Y
 .footer.footer-bottom
   %ul.footer-left
     %li
@@ -8,7 +11,7 @@
     %li= link_to icon('instagram', '', class: 'fa-2x'), '#'
     %li= link_to icon('pinterest', '', class: 'fa-2x'), '#'
   %ul.footer-right
-    %li= link_to 'Collection', products_path
-    %li= link_to 'About', about_path
-    %li= link_to 'Contact', contact_path
+    %li= link_to 'COLLECTION', products_path
+    %li= link_to 'ABOUT', about_path
+    %li= link_to 'CONTACT', contact_path
 = render "javascript"
