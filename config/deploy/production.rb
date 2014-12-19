@@ -14,6 +14,7 @@ role :db,  %w{deploy@example.com}
 # definition into the server list. The second argument
 # something that quacks like a hash can be used to set
 # extended properties on the server.
+set :stage, :production
 server '104.236.87.166', user: 'deploy', roles: %w{web app}, my_property: :my_value
 
 # you can set custom ssh options
