@@ -1,8 +1,8 @@
 - content_for :banner_bg do
   .poster(style="background:url( '/assets/bk-105.jpg') no-repeat center")
 - content_for :image do
-  = image_tag('bk-154.jpg')
+  = image_tag('bk_1.jpg')
 - content_for :heading do
   = @post.title.upcase
 - content_for :body do
-  = @post.body
+  = simple_format @post.body

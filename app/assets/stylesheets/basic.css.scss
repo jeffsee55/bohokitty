@@ -12,7 +12,6 @@
       font-size: 3em;
     }
     .image-box {
-      position: relative;
       height: auto;
       background: none;
       img {
@@ -27,7 +26,6 @@
         @include span-columns(5);
         height: 1px;
         img {
-          position: absolute;
           width: 100%;
           margin-left: 0;
         }

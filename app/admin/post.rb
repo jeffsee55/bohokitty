@@ -24,8 +24,7 @@ ActiveAdmin.register Post do
   form do |f|
     f.inputs "Content" do
       f.input :title
-      f.input :body, input_html: {class: "text_area"}
-
+      f.input :body
     end
     f.inputs "Page" do
       f.input :page, as: :select, collection: ["Home", "About", "Contact", "Real Brides", "Inspiration"]

@@ -1,13 +1,17 @@
 - content_for :banner_bg do
-  .poster(style="background:url( '/assets/bk-161.jpg') no-repeat center")
+  .poster(style="background:url( '/assets/bk-178.jpg') no-repeat center")
 - content_for :image do
-  = image_tag 'bk-150.jpg'
+  = image_tag 'bk-267.jpg'
 - content_for :heading do
   = @post.title.upcase
 - content_for :body do
   = @post.body
   %hr
-  = text_field_tag :name, nil, placeholder: "NAME"
-  = email_field_tag :email, nil, placeholder: "EMAIL"
-  = text_area_tag :message, nil, placeholder: "MESSAGE", rows: 5
-  = button_to "SUBMIT", "", class: "btn-black"
+
+  = semantic_form_for @message do |f|
+    = f.input :name, placeholder: "Name", label: false
+    = f.input :email, placeholder: "Email", label: false
+    = f.input :body, placeholder: "Message", label: false, input_html: { rows: 3 }
+    %span If your question about a specific item please select it here.
+    %span= f.input :product_id, as: :select, collection: Product.pluck(:name, :id)
+    = f.submit "SUBMIT", class: "btn-black"

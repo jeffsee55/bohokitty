@@ -3,3 +3,7 @@
     -moz-border-radius: 0px;
     border-radius: 0px;
   }
+
+a.button, a:link.button, a:visited.button, input[type=submit], input[type=button], button {
+  text-shadow: none !important;
+}

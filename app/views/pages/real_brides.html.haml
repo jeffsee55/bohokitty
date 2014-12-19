@@ -1,7 +1,9 @@
 - @posts.each do |post|
-  - content_for :image do
-    = image_tag('bk_shoulders.jpg')
-  - content_for :heading do
-    = post.title
-  - content_for :body do
-    = post.body
+  - content_for :hero do
+    .spacer
+  - content_for :announcements do
+    .container
+      %h1 REAL BRIDES
+      %hr
+      %h3= post.title.upcase
+      = simple_format post.body
