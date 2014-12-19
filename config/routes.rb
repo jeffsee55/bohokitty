@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resources :charges, only: [:new, :create, :show]
   resources :cart_sessions, only: [:create, :update, :show]
+  resources :messages, only: [:new, :create]
 
   get 'cart' => 'cart_sessions#show', as: 'cart'
   post 'add_item' => 'cart_sessions#add_item', as: 'add_item'

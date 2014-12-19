@@ -31,7 +31,7 @@ class ChargesController < ApplicationController
       amount: amount,
       details: cart_session.products_to_string
     )
-    CustomerMailer.purchase_confirmation(@charge).deliver
+    SiteMailer.purchase_confirmation(@charge).deliver
     cart_session.empty_cart
     redirect_to @charge
   end

@@ -39,6 +39,10 @@ $text-input-total-padding: $text-input-horizontal-padding * 2 + $border-width * 
 $blank-slate-border: 1px dashed #DADADA !default;
 
 // Active Admin's got SASS!
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "froala_editor.min.css";
+@import "froala_style.min.css";
 @import "active_admin/mixins";
 @import "active_admin/base";
 @import "admin/components";

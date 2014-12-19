@@ -1,0 +1,11 @@
+#new_message li {
+  list-style-type: none;
+  label {
+    float: left;
+    margin-right: 10px;
+  }
+  span {
+    display: inline;
+    float: left;
+  }
+}

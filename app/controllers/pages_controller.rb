@@ -12,6 +12,7 @@ class PagesController < ApplicationController
 
   def contact
     @post = Post.where(page: "Contact").last
+    @message = Message.new
   end
 
   def real_brides
@@ -27,11 +28,11 @@ class PagesController < ApplicationController
 
     def resolve_layout
       case action_name
-      when "home"
+      when "home", "real_brides"
         "layouts/home"
       when "contact"
         "layouts/basic"
-      when "about", "real_brides"
+      when "about"
         "layouts/basic-reverse"
       when "inspiration"
         "layouts/grid"

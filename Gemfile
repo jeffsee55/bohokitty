@@ -31,10 +31,15 @@ gem 'paperclip', '~> 4.2'
 gem 'font-awesome-sass'
 gem 'instagram'
 gem 'active_skin'
-gem "wysiwyg-rails"
 gem "haml"
 gem "haml-rails"
 gem 'mandrill-api', '~> 1.0.53'
+gem "wysiwyg-rails"
+
+gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rails', '~> 1.1.1'
+gem 'capistrano-rbenv', github: "capistrano/rbenv"
 
 group :development do
   gem "spring"
