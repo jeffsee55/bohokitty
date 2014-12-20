@@ -7,7 +7,7 @@ require 'capistrano/bundler'
 require 'capistrano/rails'
 require 'capistrano/rbenv'
 set :rbenv_type, :user
-set :rbenv_ruby, '2.1.3'
+set :rbenv_ruby, '2.0.0-p451'
 
 # Includes tasks from other gems included in your Gemfile
 #
