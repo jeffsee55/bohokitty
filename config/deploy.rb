@@ -3,6 +3,8 @@ set :repo_url, 'git@github.com:jeffsee55/bohokitty.git'
 
 set :deploy_to, '/home/deploy/bohokitty'
 
+set :log_level, :debug
+
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
