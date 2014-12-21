@@ -12,6 +12,6 @@ test:
   database: bohokitty_test
 
 production:
-  username: deploy@104.236.87.166
+  username: postgres
   password: js281883
   host: localhost
