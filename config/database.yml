@@ -10,3 +10,8 @@ development: &default
 test:
   <<: *default
   database: bohokitty_test
+
+production:
+  username: deploy@104.236.87.166
+  password: js281883
+  host: localhost
