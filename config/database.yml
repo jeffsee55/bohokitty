@@ -12,6 +12,7 @@ test:
   database: bohokitty_test
 
 production:
+  adapter: postgresql
   username: postgres
   password: js281883
   host: localhost
