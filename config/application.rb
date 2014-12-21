@@ -28,7 +28,7 @@ module Bohokitty
       generate.view_specs false
     end
 
-    config.stripe.secret_key = ENV['STRIPE_SECRET_KEY']
+    config.stripe.secret_key = 'sk_test_46D1XJWkN3rD4v5ih6Uk711A'
     config.stripe.publishable_key = 'pk_test_YmthYMo7wGYek0bfnNeT4Nb9'
     # congig.stripe.auto_mount = false
 
