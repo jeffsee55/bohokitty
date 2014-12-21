@@ -5,7 +5,6 @@
 # unless any hosts have the primary property set.
 # Don't declare `role :all`, it's a meta role
 # role :app, %w{deploy@seedesigns-1}
-role :web, %w{deploy@104.236.87.166}
 # role :db,  %w{deploy@example.com}
 
 # Extended Server Syntax
@@ -15,7 +14,7 @@ role :web, %w{deploy@104.236.87.166}
 # something that quacks like a hash can be used to set
 # extended properties on the server.
 set :stage, :production
-server '104.236.78.42', user: 'deploy', roles: %w{web}
+server '104.236.78.42', user: 'deploy'
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
