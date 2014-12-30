@@ -3,8 +3,8 @@ require 'capistrano/setup'
 
 # Includes default deployment tasks
 require 'capistrano/deploy'
-require 'capistrano/bundler'
-require 'capistrano/rails'
+# require 'capistrano/bundler'
+require 'capistrano/rails' # Includes bundler, assets, migrations as well
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.1.3'
@@ -23,10 +23,8 @@ set :rbenv_ruby, '2.1.3'
 require 'capistrano/rbenv'
 # require 'capistrano/chruby'
 # require 'capistrano/bundler'
-require 'capistrano/rails/assets'
-require 'capistrano/rails/migrations'
-
-load 'deploy/assets'
+# require 'capistrano/rails/assets'
+# require 'capistrano/rails/migrations'
 
 # Loads custom tasks from `lib/capistrano/tasks' if you have any defined.
 Dir.glob('lib/capistrano/tasks/*.cap').each { |r| import r }
