@@ -62,6 +62,11 @@ GEM
       activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
     awesome_print (1.2.0)
+    aws-sdk (1.5.8)
+      httparty (~> 0.7)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     bcrypt (3.1.9)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
@@ -186,6 +191,9 @@ GEM
       haml (>= 4.0.0.rc.1)
       hpricot (~> 0.8.6)
       ruby_parser (~> 3.1.1)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     i18n-tasks (0.7.8)
       activesupport
@@ -242,6 +250,7 @@ GEM
       money (~> 6.5.0)
       railties (>= 3.0)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     multipart-post (2.0.0)
     neat (1.5.1)
       bourbon (>= 3.1)
@@ -390,6 +399,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uuidtools (2.1.5)
     warden (1.2.3)
       rack (>= 1.0)
     webmock (1.20.2)
@@ -409,6 +419,7 @@ DEPENDENCIES
   activeadmin!
   airbrake
   awesome_print
+  aws-sdk (~> 1.5.7)
   better_errors
   binding_of_caller
   bourbon (~> 3.2.1)

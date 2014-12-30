@@ -39,6 +39,7 @@ gem 'mandrill-api', '~> 1.0.53'
 gem "wysiwyg-rails"
 gem 'nokogiri', '~> 1.6.5'
 gem 'money-rails'
+gem 'aws-sdk', '~> 1.5.7'
 
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-bundler', '~> 1.1.2'
