@@ -21,7 +21,7 @@ class ChargesController < ApplicationController
       metadata: {
         products: cart_session.products_to_string,
         total_products: cart_session.products.count,
-        special_instructions: params[:instructions],
+        special_instructions: params[:options],
         statement_description: "Purchase from BohoKitty.com"
       }
     )
@@ -29,7 +29,9 @@ class ChargesController < ApplicationController
       token: token.id,
       email: email,
       amount: amount,
-      details: cart_session.products_to_string
+      details: cart_session.products_to_string,
+      additional: charge_params[:additional],
+      event_date: charge_params[:event_date]
     )
     SiteMailer.purchase_confirmation(@charge).deliver
     cart_session.empty_cart
@@ -47,6 +49,6 @@ class ChargesController < ApplicationController
     end
 
     def charge_params
-      params.require(:charge).permit(:amount, :email)
+      params.require(:charge).permit(:amount, :email, :additional, :event_date)
     end
 end

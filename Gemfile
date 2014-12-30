@@ -11,6 +11,7 @@ gem "flutie"
 gem "high_voltage"
 gem "i18n-tasks"
 gem "jquery-rails"
+gem 'jquery-ui-rails'
 gem "neat", "~> 1.5.1"
 gem "newrelic_rpm", ">= 3.7.3"
 gem "normalize-rails", "~> 3.0.0"
@@ -20,6 +21,7 @@ gem "rails", "4.1.6"
 gem "recipient_interceptor"
 gem "sass-rails", "~> 4.0.3"
 gem "simple_form"
+gem "simple-form-datepicker"
 gem "title"
 gem "uglifier"
 gem "unicorn"
@@ -36,6 +38,7 @@ gem "haml-rails"
 gem 'mandrill-api', '~> 1.0.53'
 gem "wysiwyg-rails"
 gem 'nokogiri', '~> 1.6.5'
+gem 'money-rails'
 
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-bundler', '~> 1.1.2'

@@ -16,12 +16,42 @@ describe "When adding a product to a cart" do
     before :each do
       visit product_path(product)
       click_button 'ADD TO CART'
-      get(:cart, :cart => [{product_id:product.id, qty: 1}] )
     end
 
     it "should be added to the cart" do
       visit cart_path
-      
+
+      within('tbody') do
+        expect(page).to have_content(product.name)
+      end
+    end
+
+    describe "and when adjusting the quantity" do
+      it "should increase the quantity by one" do
+        visit cart_path
+        click_button "ADD ITEM"
+
+        within ".qty" do
+          expect(page).to have_content('2')
+        end
+      end
+
+      it "should descrease the quantity by one" do
+        visit cart_path
+        click_button "ADD ITEM"
+        click_button "REMOVE ITEM"
+
+        within ".qty" do
+          expect(page).to have_content('1')
+        end
+      end
+
+      it "should redirect to the collections page when empty" do
+        visit cart_path
+        click_button "REMOVE ITEM"
+
+        expect(current_path).to eq(products_path)
+      end
     end
   end
 end

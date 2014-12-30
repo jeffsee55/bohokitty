@@ -12,6 +12,7 @@
       %h4 ITEMS
       - @charge.details.split(",").each do |item|
         %li= item
+      = @charge.additional
   %hr
   %ul
     %h4 SHIPPING ADDRESS

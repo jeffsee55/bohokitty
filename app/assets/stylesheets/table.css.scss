@@ -21,6 +21,10 @@
   }
 }
 
+.table-header {
+  @include clearfix();
+}
+
 th, td {
   border-bottom: 1px solid lighten($charcoal, 35);
   text-align: right;

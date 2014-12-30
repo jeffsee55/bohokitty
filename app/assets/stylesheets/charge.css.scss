@@ -165,9 +165,7 @@
       }
 
       .details {
-        #instructions {
-          @include span-columns(12);
-        }
+        text-align: center;
       }
       .confirm {
         text-align: center;

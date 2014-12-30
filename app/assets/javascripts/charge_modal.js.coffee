@@ -1,4 +1,6 @@
 $ ->
+  $( "#charge_event_date" ).datepicker
+    altFormat: "yy-mm-dd"
   $('.modal-shipping').click (e) ->
     e.preventDefault()
     $('.form-fields').css('top', '-250px')

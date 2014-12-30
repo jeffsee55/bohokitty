@@ -18,14 +18,13 @@
   = "$#{@product.human_price}"
 - content_for :buttons do
   %hr
-
   - if cart_session
     = form_tag controller: "cart_sessions", action: "add_item" do
       = hidden_field_tag :product_name, @product.name
       = hidden_field_tag :product_id, @product.id
       = hidden_field_tag :product_price, @product.price
       = hidden_field_tag :qty, 1
-      = select_tag :ribbon_color, options_for_select([ "Ivory", "White" ], "Ivory")
+      = select_tag :ribbon_color, options_for_select(@product.options_to_array, "#{@product.options.first}") if @product.options
       = submit_tag "ADD TO CART", class: "btn-black"
   - else
     = form_tag controller: "cart_sessions", action: "create" do
@@ -33,8 +32,11 @@
       = hidden_field_tag :product_id, @product.id
       = hidden_field_tag :product_price, @product.price
       = hidden_field_tag :qty, 1
-      = select_tag :ribbon_color, options_for_select([ "Ivory", "White" ], "Ivory")
+      = select_tag :ribbon_color, options_for_select(@product.options, @product.options.first) if @product.options
       = submit_tag "ADD TO CART", class: "btn-black"
+  .contact-modal
+    = label_tag 'modal', 'ASK A QUESTION', class: 'btn btn-black checkout-btn'
+    = render "shared/contact_modal", product: @product
 - content_for :additional do
   .container
     %p

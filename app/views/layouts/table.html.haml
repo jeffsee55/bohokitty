@@ -9,8 +9,7 @@
         %li= image_tag "bk-267.jpg"
         %li= image_tag "bk-183.jpg"
     .table-container
-      %h1 CART
-      %hr/
+      = yield :header
       %table.table-minimal
         %thead
           = yield :th

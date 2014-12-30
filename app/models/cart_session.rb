@@ -11,8 +11,8 @@ class CartSession
   def products_to_list
     array = []
     products.map do |item|
-      ribbon_color = "| Ribbon Color: #{item['ribbon_color']}" unless item["ribbon_color"].nil?
-      array << "#{item['product_name']} #{ribbon_color} | Qty: #{item['qty']}"
+      details = "| Details: #{item['details']}" unless item["details"].nil?
+      array << "#{item['product_name']} #{details}| Qty: #{item['qty']}"
     end
     array.join(",")
     return array
@@ -21,41 +21,37 @@ class CartSession
   def products_to_string
     array = []
     products.map do |item|
-      ribbon_color = "| Ribbon Color: #{item['ribbon_color']}" unless item["ribbon_color"].nil?
-      array << "#{item['product_name']} #{ribbon_color} | Qty: #{item['qty']}"
+      details = "| Details: #{item['details']}" unless item["details"].nil?
+      array << "#{item['product_name']} #{details} | Qty: #{item['qty']}"
     end
     array.join(", ")
   end
 
   def add_product(product_name, product_id, product_price, qty, options = {})
-    # assign arguments to variables
+    options[:ribbon_color] ||= ''
+    ribbon_color = options[:ribbon_color]
     product_id = product_id.to_i
     qty = qty.to_i
-    # assign options if they exist
-    ribbon_color = options[:ribbon_color]
-    # create product hash variable from existing cart session
     cart = @session[:cart]
     product_hash = cart.find { |item| item["product_id"] == product_id && item["ribbon_color"] == ribbon_color }
-    # if cart has the product with the same ribbon color already, add to its quantity
     if product_hash
       product_hash["qty"] += qty
-    # otherwise create a cart item with the parameters
     else
-      @session[:cart] << { "product_name" => product_name, "product_id" => product_id, "product_price" => product_price, "qty" => qty, "ribbon_color" => ribbon_color }
+      cart << { "product_name" => product_name, "product_id" => product_id, "product_price" => product_price, "qty" => qty, "ribbon_color" => ribbon_color }
     end
   end
 
-  def remove_product(product_name, product_id, product_price, qty, options = {})
+  def remove_product(product_name, product_id, product_price, qty, details = {})
     product_id = product_id.to_i
     qty = qty.to_i
-    ribbon_color = options[:ribbon_color]
+    details = details[:ribbon_color]
     cart = @session[:cart]
-    product_hash = cart.find { |item| item["product_id"] == product_id && item["ribbon_color"] == ribbon_color }
+    product_hash = cart.find { |item| item["product_id"] == product_id && item["ribbon_color"] == details }
     if product_hash
       product_hash["qty"] -= qty
     else
     end
-    if product_hash["qty"] == 0
+    if product_hash && product_hash["qty"] == 0
       @session[:cart].delete(product_hash)
     end
   end
@@ -64,19 +60,36 @@ class CartSession
     @session[:cart] = []
   end
 
-  def total
-    array = @session[:cart].collect do |p|
-      Product.find(p["product_id"]).price * p["qty"]
-    end
-    array.sum
-  end
-
   def cart_count
     array = @session[:cart].collect { |item| item["qty"] }
     array.sum
   end
 
+  def total
+    array = @session[:cart].collect do |p|
+      Product.find(p["product_id"]).price * p["qty"]
+    end
+    total = array.sum
+  end
+
+  def tax
+    # SC sales tax rate
+    (total * 0.06).ceil
+  end
+
+  def total_with_tax
+    total + tax
+  end
+
   def human_total
     total / 100
+  end
+
+  def human_tax
+    tax / 100
+  end
+
+  def human_total_with_tax
+    human_total + human_tax
   end
 end

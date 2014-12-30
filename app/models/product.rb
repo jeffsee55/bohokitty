@@ -1,11 +1,10 @@
 class Product < ActiveRecord::Base
-  has_many :images
-
   validates :name, presence: true
   validates :price, presence: true
   validates :description, presence: true
 
-  accepts_nested_attributes_for :images
+  has_many :images
+  accepts_nested_attributes_for :images, allow_destroy: true
 
   def human_price
     self.price / 100
@@ -13,6 +12,10 @@ class Product < ActiveRecord::Base
 
   def image_url(position, size)
     images[position].image.url(size.to_sym)
+  end
+
+  def options_to_array
+    options.split(',')
   end
 
 end

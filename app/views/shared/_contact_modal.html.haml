@@ -1,0 +1,15 @@
+%input#modal.modal-state{:type => "checkbox"}/
+.modal-window
+  .modal-inner
+    %label.modal-close{:for => "modal"}
+    .modal-header
+      %h2= "#{@product.name.upcase}"
+      %hr
+      .contact-fields
+        .form-fields
+          = semantic_form_for @message do |f|
+            = f.input :name, placeholder: "Name", label: false
+            = f.input :email, placeholder: "Email", label: false
+            = f.input :body, placeholder: "Ask Us About #{@product.name}", label: false, input_html: { rows: 3 }
+            = f.input :product_id, input_html: { value:@product.id }, as: :hidden
+            = f.submit "SUBMIT", class: "btn-black"

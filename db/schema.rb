@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141218182238) do
+ActiveRecord::Schema.define(version: 20141229223118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 20141218182238) do
     t.string   "email"
     t.integer  "amount"
     t.text     "details"
+    t.text     "additional"
+    t.string   "event_date"
   end
 
   create_table "ckeditor_assets", force: true do |t|
@@ -133,6 +135,7 @@ ActiveRecord::Schema.define(version: 20141218182238) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "feature_image"
   end
 
   create_table "messages", force: true do |t|
@@ -162,6 +165,7 @@ ActiveRecord::Schema.define(version: 20141218182238) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "options"
   end
 
   create_table "redactor_assets", force: true do |t|
