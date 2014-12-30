@@ -21,7 +21,7 @@ class PagesController < ApplicationController
 
   def inspiration
     @post = Post.where(page: "Inspiration").last
-    @instagram_recent = Instagram.user_recent_media(1545294588, count: 33)
+    @instagram_recent = Instagram.user_recent_media(ENV['INSTAGRAM_USER_ID'], count: 33)
   end
 
   private
