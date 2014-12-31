@@ -58,6 +58,6 @@
 - content_for :buttons do
   .charge-modal
     = simple_form_for @charge, method: :post, html: { id: 'payment-form' } do |f|
-      = f.input :additional, placeholder: "Additional Instructions", label: false, rows: 2
+      = f.input :additional, placeholder: "Special Instructions", label: false, rows: 2
       = label_tag 'modal', 'Checkout', class: 'btn btn-black checkout-btn'
       = render 'charge_modal', charge: @charge, f: f
