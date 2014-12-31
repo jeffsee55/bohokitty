@@ -1,5 +1,5 @@
 - content_for :banner_bg do
-  .poster(style="background:url( './assets/bk-161.jpg') no-repeat center 50%")
+  .poster{style: "background:url(#{image_path('bk-161.jpg')}) no-repeat center; background-size: cover"}
 - content_for :heading do
   COLLECTION
 - content_for :grid_items do

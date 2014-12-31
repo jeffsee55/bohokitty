@@ -1,9 +1,9 @@
 - content_for :hero do
-  .wrapper
+  .wrapper{style: "background:url(#{image_path('bk-22.jpg')}) no-repeat center; background-size: cover"}
     .hero-wrapper
       .content
 - content_for :announcements do
   =link_to products_path do
-    .collection-box
+    .collection-box{style: "background:url(#{image_path('bk-178.jpg')}) no-repeat center; background-size: cover"}  
       .box
         %h1 COLLECTION
