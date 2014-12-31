@@ -40,6 +40,7 @@ gem "wysiwyg-rails"
 gem 'nokogiri', '~> 1.6.5'
 gem 'money-rails'
 gem 'aws-sdk', '~> 1.5.7'
+gem "dotenv-rails"
 
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-bundler', '~> 1.1.2'
@@ -57,7 +58,6 @@ end
 group :development, :test do
   gem "awesome_print"
   gem "byebug"
-  gem "dotenv-rails"
   gem "factory_girl_rails"
   gem "pry-rails"
   gem "rspec-rails", "~> 3.0.0"
