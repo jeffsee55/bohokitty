@@ -6,3 +6,4 @@
   = @post.title.upcase
 - content_for :body do
   = simple_format @post.body
+  = ENV["SECRET_KEY_BASE"] 
