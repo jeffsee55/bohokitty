@@ -9,7 +9,7 @@ class Image < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 
   def s3_credentials
-    {:bucket => "bohokitty_assets", :access_key_id => "AKIAI3BOBWFCEXP7K6OQ", :secret_access_key => "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"}
+    {:bucket => "bohokitty_assets", :access_key_id => ENV["AWS_ACCESS_KEY"], :secret_access_key =>  ENV["AWS_SECRET_KEY"]}
   end
 
   def url(size)

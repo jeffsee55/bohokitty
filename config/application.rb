@@ -28,8 +28,8 @@ module Bohokitty
       generate.view_specs false
     end
 
-    config.stripe.secret_key = 'sk_test_46D1XJWkN3rD4v5ih6Uk711A'
-    config.stripe.publishable_key = 'pk_test_YmthYMo7wGYek0bfnNeT4Nb9'
+    config.stripe.secret_key = ENV["STRIPE_SECRET_KEY"]
+    config.stripe.publishable_key = ENV["STRIPE_PUBLISHABLE_KEY"]
     # congig.stripe.auto_mount = false
 
     config.action_controller.action_on_unpermitted_parameters = :raise
