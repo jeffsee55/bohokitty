@@ -6,4 +6,4 @@
   = @post.title.upcase
 - content_for :body do
   = simple_format @post.body
-  = "This is the secret key #{ENV["SECRET_KEY_BASE"]}"
+  = "This is the secret key #{ENV["MANDRILL_APIKEY"]}"
