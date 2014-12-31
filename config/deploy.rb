@@ -6,7 +6,7 @@ set :repo_url, 'git@github.com:jeffsee55/bohokitty.git'
 
 set :deploy_to, '/home/deploy/bohokitty'
 
-set :linked_files, %w{config/database.yml .env}
+set :linked_files, %w{config/database.yml config/.env}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :deploy do
