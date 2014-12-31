@@ -4,13 +4,13 @@
   %span.boho B O H O
   %span.kitty K I T T Y
 .footer.footer-bottom
-  %ul.footer-left
-    %li
-      = link_to "" do
-        = embed_svg 'svg/icons.svg', class: 'etsy-icon'
-    %li= link_to icon('instagram', '', class: 'fa-2x'), '#'
-    %li= link_to icon('pinterest', '', class: 'fa-2x'), '#'
-  %ul.footer-right
+  -# %ul.footer-left
+  -#   %li
+  -#     = link_to "" do
+  -#       = embed_svg 'svg/icons.svg', class: 'etsy-icon'
+  -#   %li= link_to icon('instagram', '', class: 'fa-2x'), '#'
+  -#   %li= link_to icon('pinterest', '', class: 'fa-2x'), '#'
+  %ul
     %li= link_to 'COLLECTION', products_path
     %li= link_to 'ABOUT', about_path
     %li= link_to 'CONTACT', contact_path

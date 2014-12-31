@@ -33,7 +33,7 @@
       = hidden_field_tag :product_price, @product.price
       = hidden_field_tag :qty, 1
       = select_tag :ribbon_color, options_for_select(@product.options, @product.options.first) if @product.options
-      = submit_tag "ADD TO CART", class: "btn-black"
+      = submit_tag "ADD TO CART", class: "btn-black checkout-btn"
   .contact-modal
     = label_tag 'modal', 'ASK A QUESTION', class: 'btn btn-black checkout-btn'
     = render "shared/contact_modal", product: @product

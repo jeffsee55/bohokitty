@@ -1,3 +1,4 @@
+= render "flashes"
 .nav-wrapper
   .nav-container
     .nav-logo
@@ -17,4 +18,3 @@
         %h5= link_to "CONTACT", contact_path
       %li
         %h5= link_to "CART - #{cart_session.cart_count}", cart_path
-  = render "flashes"

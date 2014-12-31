@@ -1,28 +1,11 @@
 .charge-modal {
-
-  .checkout-btn {
-    float: right;
-  }
-
   label {
     cursor: pointer;
     margin-bottom: 0;
   }
-
-  label img {
-    $img-width: 300px;
-    border-radius: $img-width/2;
-    display: block;
-    max-width: $img-width;
-  }
-
   input[type="checkbox"] {
     display: none;
   }
-
-  .modal-open {
-  }
-
   .modal-window { // overlay
     @include transition(opacity .25s ease);
     @include position(fixed, 0px 0px 0px 0px);
@@ -31,13 +14,7 @@
     text-align: left;
     visibility: hidden;
     z-index: 99999999999;
-
-    .modal-bg {
-      @include position(absolute, 0px 0px 0px 0px);
-      cursor: pointer;
-    }
   }
-
   .modal-close {
     @include position(absolute, ($modal-padding /2) ($modal-padding /2) null null);
     @include size(1.5em);
@@ -64,7 +41,6 @@
       @include transform(rotate(-45deg));
     }
   }
-
   .modal-inner {
     @include transition(opacity .25s ease);
     border-radius: $base-border-radius;
@@ -73,14 +49,24 @@
     position: relative;
     width: 95%;
     margin-top: .6em;
-    .modal-header, .modal-footer {
+    .modal-header {
       padding: 20px;
+      h2 {
+        font-size: 1.3em;
+        @include media($medium-screen) {
+          font-size: 2em;
+        }
+      }
     }
     .modal-footer {
-      height: 80px;
+      padding-top: 20px;
+      font-size: 0.8em;
       @include clearfix;
       .float {
         text-align: right;
+      }
+      @include media($medium-screen) {
+        font-size: 1em;
       }
     }
     .modal-card, .modal-shipping, .modal-confim, .modal-details .modal-purchase {
@@ -95,52 +81,53 @@
     .modal-purchase {
       float: right;
     }
-
     @include media($medium-screen) {
       width: 60%;
       max-height: 60%;
       margin-top: 10em;
     }
-
     @include media($large-screen) {
       width: 50%;
       margin-top: 10em;
     }
-
     .charge-fields {
       width: 100%;
       font-size: 1.3em;
       overflow: hidden;
       height: 250px;
-
       .form-fields {
         @include transition(all, .3s ease-in-out);
         position: relative;
       }
-
       .credit-card, .shipping, .details, .confirm {
         width: 100%;
         height: 250px;
-        padding: 20px;
+        padding-top: 20px;
       }
       .credit-card {
         @include clearfix;
         height: 250px;
-        padding: 20px;
-        #credt_card_number {
-          @include span-columns(6)
-        }
-        #name, #charge_email {
-          @include span-columns(6);
-        }
         #exp_month, #exp_year, #cvc {
           @include span-columns(4);
+          &:last-child {
+            @include omega();
+          }
         }
-        #cvc {
-          @include omega();
+        @include media($medium-screen) {
+          #credt_card_number {
+            @include span-columns(6)
+          }
+          #name, #charge_email {
+            @include span-columns(6);
+          }
+          #exp_month, #exp_year, #cvc {
+            @include span-columns(4);
+          }
+          #cvc {
+            @include omega();
+          }
         }
       }
-
       .shipping {
         #address_line1 {
           @include span-columns(9);
@@ -153,17 +140,39 @@
           @include span-columns(6);
         }
         #address_state {
-          @include span-columns(2);
-        }
-        #address_zip {
-          @include span-columns(2);
-        }
-        #address_country {
-          @include span-columns(2);
+          @include span-columns(6);
           @include omega();
         }
+        #address_zip {
+          @include span-columns(6);
+        }
+        #address_country {
+          @include span-columns(6);
+          @include omega;
+        }
+        @include media($medium-screen) {
+          #address_line1 {
+            @include span-columns(9);
+          }
+          #address_line2 {
+            @include span-columns(3);
+            @include omega();
+          }
+          #address_city {
+            @include span-columns(6);
+          }
+          #address_state {
+            @include span-columns(3);
+          }
+          #address_zip {
+            @include span-columns(3);
+            @include omega();
+          }
+          #address_country {
+            @include span-columns(5);
+          }
+        }
       }
-
       .details {
         text-align: center;
       }

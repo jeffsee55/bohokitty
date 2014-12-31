@@ -24,15 +24,14 @@
           = hidden_field_tag :qty, 1
           = hidden_field_tag :ribbon_color, item["ribbon_color"]
           = button_tag class: "btn-black" do
-            ADD ITEM
+            %i.fa.fa-angle-double-up
         = form_tag controller: "cart_sessions", action: "remove_item", class: "btn-black" do
           = hidden_field_tag :product_name, item["product_name"]
           = hidden_field_tag :product_id, item["product_id"]
           = hidden_field_tag :qty, 1
           = hidden_field_tag :ribbon_color, item["ribbon_color"]
           = button_tag class: "btn-black" do
-            REMOVE ITEM
-            -# %i.fa.fa-angle-double-down
+            %i.fa.fa-angle-double-down
       %td= "$#{(item['product_price'].to_i / 100) * item['qty'] }"
 - content_for :tr_footers do
   %tr
