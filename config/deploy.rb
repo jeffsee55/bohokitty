@@ -18,20 +18,6 @@ namespace :deploy do
     end
   end
 
-  desc "Database config"
-  task :setup_config, roles: :app do
-    # upload you database.yml from config dir to shared dir on server
-    put File.read("config/database.yml"), "#{shared_path}/config/database.yml"
-    # make symlink
-    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
-    # upload you database.yml from config dir to shared dir on server
-    put File.read(".env"), "#{shared_path}/config/.env"
-    # make symlink
-    run "ln -nfs #{shared_path}/config/.env #{current_path}/.env"
-  end
-
-  before :publishing, 'deploy:setup_config'
-
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
 end
