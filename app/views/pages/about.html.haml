@@ -1,9 +1,8 @@
 - content_for :banner_bg do
-  .poster(style="background:url( '/assets/bk-105.jpg') no-repeat center")
+  .poster{:style => "background: url(#{image_path('105.jpg')})"}
 - content_for :image do
   = image_tag('bk_1.jpg')
 - content_for :heading do
   = @post.title.upcase
 - content_for :body do
   = simple_format @post.body
-  = "This is the secret key #{ENV["MANDRILL_APIKEY"]}"
