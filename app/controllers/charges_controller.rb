@@ -31,7 +31,8 @@ class ChargesController < ApplicationController
       amount: amount,
       details: cart_session.products_to_string,
       additional: charge_params[:additional],
-      event_date: charge_params[:event_date]
+      event_date: charge_params[:event_date],
+      session_id: session[:session_id]
     )
     SiteMailer.purchase_confirmation(@charge).deliver
     cart_session.empty_cart
@@ -39,8 +40,12 @@ class ChargesController < ApplicationController
   end
 
   def show
-    @charge
-    @stripe_charge = Stripe::Charge.retrieve(@charge.token)
+    if session[:session_id] == @charge.session_id
+      @charge
+      @stripe_charge = Stripe::Charge.retrieve(@charge.token)
+    else
+      redirect_to root_path, notice: "You may no longer view this purchase summary."
+    end
   end
 
   private
@@ -49,6 +54,6 @@ class ChargesController < ApplicationController
     end
 
     def charge_params
-      params.require(:charge).permit(:amount, :email, :additional, :event_date)
+      params.require(:charge).permit(:amount, :email, :additional, :event_date, :session_id)
     end
 end

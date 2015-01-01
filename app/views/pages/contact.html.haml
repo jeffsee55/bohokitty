@@ -5,7 +5,7 @@
 - content_for :heading do
   = @post.title.upcase
 - content_for :body do
-  = @post.body
+  = simple_format @post.body
   %hr
 
   = semantic_form_for @message do |f|

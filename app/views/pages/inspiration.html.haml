@@ -3,7 +3,7 @@
 - content_for :heading do
   = @post.title.upcase
 - content_for :body do
-  = @post.body
+  = simple_format @post.body
 - content_for :grid_items do
   %ul
     - @instagram_recent.each do |p|
