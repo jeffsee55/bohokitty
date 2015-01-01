@@ -1,6 +1,5 @@
 $ ->
-
-  Stripe.setPublishableKey(ENV["STRIPE_PUBLISHABLE_KEY"])
+  Stripe.setPublishableKey("<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>")
   $('#payment-form').submit((event) ->
     # disable the submit to prevent repeated clicks
     $('input[type="submit"]').attr('disabled', 'disabled')
