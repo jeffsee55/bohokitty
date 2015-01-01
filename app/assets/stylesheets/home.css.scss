@@ -14,6 +14,30 @@
       }
     }
   }
+  .overlay {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 2;
+    @include background(radial-gradient(transparentize($mint, 1), transparentize(#333, 0.2)));
+    .text-box {
+      position: absolute;
+      padding: 0 30px;
+      bottom: 20px;
+      @include media($large-screen) {
+        bottom: 50px;
+      }
+      h1 {
+        color: $tope;
+        letter-spacing: 10px;
+        font-size: 2.5em;
+        @include media($large-screen) {
+          font-size: 4em;
+          text-align: justify;
+          letter-spacing: 15px;
+        }
+      }
+    }
+  }
 }
 
 .announcements {

@@ -51,7 +51,7 @@
       height: 100px;
       box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.4);
       &:hover {
-        @include filter(opacity(0.5));
+        @include filter(opacity(0.7));
       }
       &:last-child {
         @include omega();
