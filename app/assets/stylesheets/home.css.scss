@@ -1,7 +1,6 @@
 .wrapper {
   z-index: 1;
   position: relative;
-  @include background-image(linear-gradient(135deg, transparentize($medium-gray, 0.9), transparentize($medium-gray, 0.9)));
   // @include filter(grayscale(100%));
   background-size: cover;
   min-height: 700px;
