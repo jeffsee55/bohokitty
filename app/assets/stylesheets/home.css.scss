@@ -61,17 +61,18 @@
     width: 50%;
   }
   .box {
-    $box-height: 100px;
+    $box-height: 300px;
     margin: auto;
-    height: $box-height;
+    height: 100%;
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
-    border: 2px solid white;
-    width: 300px;
     h1 {
+      width: 100%;
+      display: block;
       color: white;
-      padding-top: $box-height / 3;
-      font-size: 2em;
+      padding-top: $box-height / 2.2;
+      font-size: 3em;
+      letter-spacing: 10px;
       text-align: center;
     }
   }
