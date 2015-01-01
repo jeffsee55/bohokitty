@@ -11,8 +11,8 @@
     padding-top: $nav-vertical-padding;
     .nav-logo {
       position: relative;
+      display: inline-block;
       .logo-text {
-        float: left;
         padding-left: 70px;
       }
       .logo {
