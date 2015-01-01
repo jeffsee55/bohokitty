@@ -7,22 +7,25 @@
   .nav-container {
     width: 100%;
     @include outer-container();
-    height: $nav-height;
     padding-top: $nav-vertical-padding;
+    position: relative;
+    height: $nav-height;
     .nav-logo {
-      position: relative;
-      display: inline-block;
-      .logo-text {
-        display: inline-block;
-        float: left;
+      position: absolute;
+      top: 20px;
+      @include span-columns(8);
+      @include media($large-screen) {
+        @include span-columns(3);
+        top: 5px;
       }
       .logo {
-        position: relative;
-        height: 90px;
+        height: 60px;
         float: left;
-        top: -$nav-vertical-padding / 1.2;
         path, text {
           fill: $charcoal;
+        }
+        @include media($large-screen) {
+          height: 90px;
         }
       }
     }
@@ -33,27 +36,31 @@
         display: none;
       }
     }
-    .nav-list {
-      margin-top: 20px;
+    .nav-div {
+      @include span-columns(9);
+      @include omega();
       float: right;
-      display: none;
-      @include media($large-screen) {
-        margin-top: 0;
-        display: block;
-      }
-      li {
-        padding: 0 15px 10px 0;
-        text-align:right;
-        &:first-child {
-          padding-left: 0
-        }
-        a {
-          color: $charcoal;
-        }
+      .nav-list {
+        margin-top: 20px;
+        float: right;
+        display: none;
         @include media($large-screen) {
-          display: inline-block;
-          padding: 0 0 0 40px;
-          text-align: left;
+          margin-top: 0;
+          display: block;
+        }
+        li {
+          padding: 0 15px 10px 0;
+          text-align:right;
+          &:first-child {
+            padding-left: 0
+          }
+          @include media($large-screen) {
+            display: inline-block;
+            padding-right: 30px;
+          }
+          a {
+            color: $charcoal;
+          }
         }
       }
     }
