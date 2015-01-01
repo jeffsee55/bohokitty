@@ -13,11 +13,13 @@
       position: relative;
       display: inline-block;
       .logo-text {
-        padding-left: 70px;
+        display: inline-block;
+        float: left;
       }
       .logo {
-        position: absolute;
+        position: relative;
         height: 90px;
+        float: left;
         top: -$nav-vertical-padding / 1.2;
         path, text {
           fill: $charcoal;
