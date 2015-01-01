@@ -1,10 +1,8 @@
 .wrapper {
   z-index: 1;
   position: relative;
-  // @include filter(grayscale(100%));
   background-size: cover;
   min-height: 700px;
-  height: 100vh;
   .hero-wrapper {
     text-align: center;
     .content {
