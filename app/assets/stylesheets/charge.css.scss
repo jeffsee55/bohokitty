@@ -107,68 +107,77 @@
       .credit-card {
         @include clearfix;
         height: 250px;
-        #exp_month, #exp_year, #cvc {
+        .name, .charge_email, .credit_card_number, .exp_month, .exp_year, .cvc {
+          display:inline-block
+        }
+        .exp_month, .exp_year, .cvc {
           @include span-columns(4);
           &:last-child {
             @include omega();
           }
         }
         @include media($medium-screen) {
-          #credt_card_number {
-            @include span-columns(6)
+          .credit_card_number {
+            @include span-columns(12);
           }
-          #name, #charge_email {
+          .name, .charge_email {
             @include span-columns(6);
+            &:nth-child(2) {
+              @include omega();
+            }
           }
-          #exp_month, #exp_year, #cvc {
+          .exp_month, .exp_year, .cvc {
             @include span-columns(4);
           }
-          #cvc {
+          .cvc {
             @include omega();
           }
         }
       }
       .shipping {
-        #address_line1 {
+        .address_line1, .address_line2, .address_city, .address_state, .address_zip, .address_country {
+          display: inline-block;
+        }
+        .address_line1 {
           @include span-columns(9);
         }
-        #address_line2 {
+        .address_line2 {
           @include span-columns(3);
           @include omega();
         }
-        #address_city {
+        .address_city {
           @include span-columns(6);
         }
-        #address_state {
+        .address_state {
           @include span-columns(6);
           @include omega();
         }
-        #address_zip {
+        .address_zip {
           @include span-columns(6);
         }
-        #address_country {
+        .address_country {
           @include span-columns(6);
           @include omega;
         }
         @include media($medium-screen) {
-          #address_line1 {
+          .address_line1 {
             @include span-columns(9);
           }
-          #address_line2 {
+          .address_line2 {
             @include span-columns(3);
             @include omega();
           }
-          #address_city {
+          .address_city {
             @include span-columns(6);
           }
-          #address_state {
+          .address_state {
             @include span-columns(3);
           }
-          #address_zip {
+          .address_zip {
             @include span-columns(3);
             @include omega();
           }
-          #address_country {
+          .address_country {
             @include span-columns(5);
           }
         }

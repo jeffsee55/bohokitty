@@ -7,20 +7,21 @@
       .charge-fields
         .form-fields
           .credit-card
-            = text_field_tag :name, nil, placeholder: "Full Name"
+            .name= text_field_tag :name, nil, placeholder: "Full Name"
             = f.input :email, placeholder: "Email", label: false
-            = text_field_tag :credit_card_number, nil, name: nil, placeholder: 'Credit Card Number'
-            = text_field_tag :exp_month, nil, name: nil, placeholder: "Exp Month"
-            = text_field_tag :exp_year, nil, name: nil, placeholder: "Exp Year"
-            = text_field_tag :cvc, nil, name: nil, placeholder: "CVC"
+            .credit_card_number= text_field_tag :credit_card_number, nil, name: nil, placeholder: 'Credit Card Number'
+            .exp_month= text_field_tag :exp_month, nil, name: nil, placeholder: "MM"
+            .exp_year= text_field_tag :exp_year, nil, name: nil, placeholder: "YYYY"
+            .cvc= text_field_tag :cvc, nil, name: nil, placeholder: "CVC"
           .shipping
-            = text_field_tag :address_line1, nil , name: nil, placeholder: "Address Line 1"
-            = text_field_tag :address_line2, nil , name: nil, placeholder: "Line 2"
-            = text_field_tag :address_city, nil, name: nil, placeholder: "City"
-            = text_field_tag :address_state, nil, name: nil, placeholder: "State"
-            = text_field_tag :address_zip, nil, name: nil, placeholder: "Zip"
-            = text_field_tag :address_country, nil, name: nil, placeholder: "Country"
+            .address_line1= text_field_tag :address_line1, nil , name: nil, placeholder: "Address Line 1"
+            .address_line2= text_field_tag :address_line2, nil , name: nil, placeholder: "Line 2"
+            .address_city= text_field_tag :address_city, nil, name: nil, placeholder: "City"
+            .address_state= text_field_tag :address_state, nil, name: nil, placeholder: "State"
+            .address_zip= text_field_tag :address_zip, nil, name: nil, placeholder: "Zip"
+            .address_country= text_field_tag :address_country, nil, name: nil, placeholder: "Country"
             = hidden_field_tag :amount, cart_session.total_with_tax
+            = hidden_field_tag :session_id, session[:session_id]
             %hr/
           .details
             %h4 When is your special event?

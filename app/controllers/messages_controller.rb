@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
       SiteMailer.message_notifier(@message).deliver
       redirect_to :back, notice: "Your inquiry has been sent, we will be in touch shortly!"
     else
-      render :new
+      redirect_to :back, notice: "We could not process your request because #{@message.errors.full_messages.each { |msg| msg }}"
     end
   end
 

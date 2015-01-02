@@ -43,7 +43,6 @@
     padding-top: 4em;
     text-align: center;
     color: $charcoal;
-    @include filter(opacity(0.5));
     @include background(linear-gradient(135deg, transparentize(#d7d3d6, 0.2), transparentize(#edeced, 0.2)));
     @include media($large-screen) {
       @include filter(opacity(0));
@@ -60,4 +59,10 @@
 
 .hover-tile-container:hover > .hover-tile-hidden {
   @include filter(opacity(1))
+}
+
+.grid-item.products {
+  .hover-tile-hidden {
+    @include filter(opacity(0.9));
+  }
 }

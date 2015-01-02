@@ -4,5 +4,5 @@
   COLLECTION
 - content_for :grid_items do
   - @products.each do |p|
-    %li.grid-item
+    %li.grid-item.products
       = render partial: 'shared/tile', locals: { resource: p }

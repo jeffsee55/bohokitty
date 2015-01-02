@@ -41,3 +41,6 @@ $ ->
     $('.modal-details').show()
     $('.modal-details .back').show()
     $('.modal-details .forward').hide()
+
+  $('#address_line1, #address_line2, #address_city, #address_state, #address_zip, #address_country').focus ->
+    $('.form-fields').css('top', '-250px')

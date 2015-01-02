@@ -128,4 +128,37 @@
   }
 }
 
-// Based on code by Kasper Mikiewicz
+.valid_field, .invalid_field {
+  position: relative;
+}
+
+/*replace the content value with the
+corresponding value from the list below*/
+
+.valid_field:before {
+  content: "\f00c";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  /*--adjust as necessary--*/
+  color: $mint;
+  padding-right: 0.5em;
+  position: absolute;
+  top: 7px;
+  right: 5px;
+}
+
+.invalid_field:before {
+  content: "\f00d";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  /*--adjust as necessary--*/
+  color: $brick;
+  padding-right: 0.5em;
+  position: absolute;
+  top: 7px;
+  right: 5px;
+}
