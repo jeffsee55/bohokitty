@@ -27,7 +27,8 @@ class ChargesController < ApplicationController
   end
 
   def show
-    if session[:session_id] == @charge.session_id
+    session_id = @charge.session_id if @charge.session_id
+    if session[:session_id] == session_id
       @charge
       @stripe_charge = Stripe::Charge.retrieve(@charge.token)
     else
