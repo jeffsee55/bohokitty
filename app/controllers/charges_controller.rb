@@ -16,8 +16,7 @@ class ChargesController < ApplicationController
         amount: charge_params[:amount],
         details: cart_session.products_to_string,
         additional: charge_params[:additional],
-        event_date: charge_params[:event_date],
-        session_id: charge_params[:session_id]
+        event_date: charge_params[:event_date]
       )
       SiteMailer.purchase_confirmation(@charge).deliver
       cart_session.empty_cart
