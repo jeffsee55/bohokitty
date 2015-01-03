@@ -43,6 +43,7 @@ class ChargesController < ApplicationController
       )
       SiteMailer.purchase_confirmation(@charge).deliver
       cart_session.empty_cart
+      redirect_to @charge
     else
     end
   end
