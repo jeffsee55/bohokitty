@@ -20,8 +20,8 @@
             .address_state= text_field_tag :address_state, nil, name: nil, placeholder: "State"
             .address_zip= text_field_tag :address_zip, nil, name: nil, placeholder: "Zip"
             .address_country= text_field_tag :address_country, nil, name: nil, placeholder: "Country"
-            = hidden_field_tag :amount, cart_session.total_with_tax
             = f.input :session_id, as: :hidden, input_html: { value: session[:session_id] }
+            = f.input :amount, as: :hidden, input_html: { value: cart_session.total_with_tax }
             %hr/
           .details
             %h4 When is your special event?

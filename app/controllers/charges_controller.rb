@@ -13,7 +13,7 @@ class ChargesController < ApplicationController
     if stripe_charge
       @charge = Charge.create(
         email: charge_params[:email],
-        amount: params[:amount],
+        amount: charge_params[:amount],
         details: cart_session.products_to_string,
         additional: charge_params[:additional],
         event_date: charge_params[:event_date],
@@ -49,7 +49,7 @@ class ChargesController < ApplicationController
   def stripe_charge
     email = charge_params[:email]
     stripe_token = params[:stripe_token]
-    amount = params[:amount]
+    amount = charge_params[:amount]
     token = Stripe::Charge.create(
       amount: amount,
       currency: "usd",
@@ -63,8 +63,6 @@ class ChargesController < ApplicationController
       }
     )
   rescue Stripe::CardError => e
-    redirect_to :cart, notice: e.message
   rescue Stripe::InvalidRequestError => e
-    redirect_to :cart, notice: e.message
   end
 end
