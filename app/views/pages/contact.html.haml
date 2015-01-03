@@ -1,7 +1,7 @@
 - content_for :banner_bg do
   .poster{style: "background:url(#{image_path('bk-178.jpg')}) no-repeat center; background-size: cover"}
 - content_for :image do
-  = image_tag 'bk-193.jpg'
+  = image_tag 'bk-29.jpg'
 - content_for :heading do
   = @post.title.upcase
 - content_for :body do
@@ -16,3 +16,6 @@
     %span If your question about a specific item please select it here.
     %span= f.input :product_id, as: :select, collection: Product.pluck(:name, :id)
     = f.submit "SUBMIT", class: "btn-black"
+
+- content_for :footer do
+  = javascript_include_tag 'pages/contact'

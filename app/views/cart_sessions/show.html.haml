@@ -60,3 +60,6 @@
       = f.input :additional, placeholder: "Special Instructions", label: false, rows: 2
       = label_tag 'modal', 'Checkout', class: 'btn btn-black checkout-btn'
       = render 'charge_modal', charge: @charge, f: f
+
+- content_for :footer do
+  = javascript_include_tag 'pages/cart/cart'
