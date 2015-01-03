@@ -10,25 +10,45 @@ class ChargesController < ApplicationController
   end
 
   def create
-    if stripe_charge
+    email = charge_params[:email]
+    stripe_token = params[:stripe_token]
+    amount = charge_params[:amount]
+    begin
+      token = Stripe::Charge.create(
+      amount: charge_params[:amount],
+      currency: "usd",
+      card: params[:stripe_token],
+      description: "Purchase from #{charge_params[:email]}",
+      metadata: {
+        products: cart_session.products_to_string,
+        total_products: cart_session.products.count,
+        special_instructions: charge_params[:additional],
+        statement_description: "Purchase from BohoKitty.com"
+      }
+      )
+    rescue Stripe::CardError => e
+      redirect_to cart_path, notice: "We're sorry. #{e.message}"
+      return
+    end
+    if token
+      token = token.id
       @charge = Charge.create(
+        token: token,
         email: charge_params[:email],
         amount: charge_params[:amount],
         details: cart_session.products_to_string,
         additional: charge_params[:additional],
-        event_date: charge_params[:event_date]
+        event_date: charge_params[:event_date],
+        session_id: charge_params[:session_id]
       )
       SiteMailer.purchase_confirmation(@charge).deliver
       cart_session.empty_cart
-      redirect_to @charge
     else
-      redirect_to :cart, notice: "There was a problem with your purchase"
     end
   end
 
   def show
-    session_id = @charge.session_id if @charge.session_id
-    if session[:session_id] == session_id
+    if session[:session_id] == @charge.session_id
       @charge
       @stripe_charge = Stripe::Charge.retrieve(@charge.token)
     else
@@ -44,25 +64,5 @@ class ChargesController < ApplicationController
 
   def charge_params
     params.require(:charge).permit(:amount, :email, :additional, :event_date, :session_id)
-  end
-
-  def stripe_charge
-    email = charge_params[:email]
-    stripe_token = params[:stripe_token]
-    amount = charge_params[:amount]
-    token = Stripe::Charge.create(
-      amount: amount,
-      currency: "usd",
-      card: stripe_token,
-      description: "Purchase from #{email}",
-      metadata: {
-        products: cart_session.products_to_string,
-        total_products: cart_session.products.count,
-        special_instructions: params[:options],
-        statement_description: "Purchase from BohoKitty.com"
-      }
-    )
-  rescue Stripe::CardError => e
-  rescue Stripe::InvalidRequestError => e
   end
 end

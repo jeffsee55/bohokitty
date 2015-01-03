@@ -25,12 +25,14 @@ $ ->
 
   stripeResponseHandler = (status, response) ->
     if(response.error)
-      console.log(response.error)
+      console.log(response.error.message)
       # reenable the submit button
       $('input[type="submit"]').removeAttr('disabled')
       # show the errors on the form
-      $('.payment-errors').html(response.error.message)
+      $('.payment-errors').append("<div class='card-error'>#{response.error.message}</div>")
     else
+      $('.payment-errors .card-error').remove()
+      $('.payment-errors').append("<div class='card-success'><i class='fa fa-check'></i></div>")
       form$ = $('#payment-form')
       # token contains last4, cart type, and id
       token = response['id']

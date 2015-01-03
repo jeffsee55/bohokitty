@@ -27,10 +27,11 @@
             %h4 When is your special event?
             = f.input :event_date, as: :datepicker, label: false, type: "text"
           .confirm
-            %h4 Confirm your purchase
+            %h4 CONFIRM YOUR PURCHASE
             %ul
               - cart_session.products_to_list.each do |item|
                 %li= item
+            .payment-errors
       .modal-footer
         .float
           = button_tag type: 'button', class: "modal-card btn-black" do

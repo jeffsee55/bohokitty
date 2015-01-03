@@ -187,6 +187,27 @@
       }
       .confirm {
         text-align: center;
+        .payment-errors {
+          margin-top: 20px;
+          width: 100%;
+          .card-error {
+            @include transition(all, 0.2s, ease-in-out);
+            color: #fff;
+            background: $brick;
+            padding: 5px;
+            border-radius: 2px;
+            width: 100%
+          }
+          .card-success {
+            @include transition(all, 0.2s, ease-in-out);
+            color: #fff;
+            margin-top: 20px;
+            background: $mint;
+            padding: 5px;
+            border-radius: 2px;
+            width: 100%;
+          }
+        }
       }
     }
   }
