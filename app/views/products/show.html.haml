@@ -9,7 +9,7 @@
         %i.fa.fa-2x.fa-angle-left
     %ul.thumbs
       - @product.images.limit(4).each do |image|
-        %li(style='background-image: url("#{image.url('medium')}")')
+        %li{style:"background: url('#{image.url('medium')}') no-repeat center; background-size: cover"}
 - content_for :heading do
   = @product.name.upcase
 - content_for :body do
