@@ -21,7 +21,7 @@
             .address_zip= text_field_tag :address_zip, nil, name: nil, placeholder: "Zip"
             .address_country= text_field_tag :address_country, nil, name: nil, placeholder: "Country"
             = hidden_field_tag :amount, cart_session.total_with_tax
-            = hidden_field_tag :session_id, session[:session_id]
+            = f.input :session_id, as: :hidden, input_html: { value: session[:session_id] }
             %hr/
           .details
             %h4 When is your special event?
