@@ -66,6 +66,7 @@
     height: 100%;
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
+    @include background(radial-gradient(transparentize($mint, 1), transparentize(#333, 0.2)));
     h1 {
       width: 100%;
       display: block;
