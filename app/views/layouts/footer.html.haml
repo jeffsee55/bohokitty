@@ -14,6 +14,9 @@
     %li= link_to 'COLLECTION', products_path
     %li= link_to 'ABOUT', about_path
     %li= link_to 'CONTACT', contact_path
+  =link_to 'http://jeffseedesigns.com' do
+    %small{style: "margin-top: 10px;"}
+      %em website by jeffseedesigns.com
 = render "javascript"
 
 = yield :footer
