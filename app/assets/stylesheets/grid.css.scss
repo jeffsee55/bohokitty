@@ -6,15 +6,6 @@
     position: relative;
     width: 100%;
     margin-bottom: 30px;
-    @include media($medium-screen) {
-      width: percentage(1/2);
-    }
-    @include media($large-screen) {
-      @include span-columns(6);
-      &:nth-child(even) {
-        @include omega;
-      }
-    }
     .button_to {
       z-index: 100;
       width: 50%;
@@ -34,6 +25,20 @@
       width: percentage(1/3);
       float: left;
       margin: 0;
+    }
+  }
+  .products {
+    @include media($medium-screen) {
+      width: percentage(1/2);
+      float: left;
+      padding: 1em;
+    }
+    @include media($large-screen) {
+      width: percentage(1/3);
+      float: left;
+      margin: 0;
+      padding: 1em;
+
     }
   }
 }
