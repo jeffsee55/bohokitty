@@ -71,9 +71,12 @@
       display: block;
       color: white;
       padding-top: $box-height / 2.2;
-      font-size: 3em;
       letter-spacing: 10px;
       text-align: center;
+      font-size: 2em;
+      @include media($large-screen) {
+        font-size: 3em;
+      }
     }
   }
   &:hover {

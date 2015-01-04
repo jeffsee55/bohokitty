@@ -41,7 +41,7 @@
       @include omega();
       float: right;
       .nav-list {
-        margin-top: 20px;
+        margin-top: 40px;
         float: right;
         display: none;
         @include media($large-screen) {
