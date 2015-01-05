@@ -10,10 +10,3 @@ development: &default
 test:
   <<: *default
   database: bohokitty_test
-
-production:
-  adapter: postgresql
-  database: bohokitty_production
-  username: postgres
-  password: js281883
-  host: localhost
