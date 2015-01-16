@@ -13,5 +13,4 @@ module ApplicationHelper
     raw doc
   end
 
-
 end

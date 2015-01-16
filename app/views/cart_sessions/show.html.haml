@@ -3,7 +3,7 @@
 - content_for :header do
   .table-header
     %h1{style: "float:left"} CART
-    = button_to "Empty Cart", empty_cart_path, method: :delete, class: "btn-black", style: "float:right;"
+    = button_to "Empty Cart", empty_cart_path, method: :delete, class: "btn-black", id:"empty-cart", style: "float:right;"
   %hr/
 - content_for :th do
   %tr
@@ -23,14 +23,14 @@
           = hidden_field_tag :product_id, item["product_id"]
           = hidden_field_tag :qty, 1
           = hidden_field_tag :ribbon_color, item["ribbon_color"]
-          = button_tag class: "btn-black" do
+          = button_tag class: "btn-black", id: "add-item" do
             %i.fa.fa-angle-double-up
         = form_tag controller: "cart_sessions", action: "remove_item", class: "btn-black" do
           = hidden_field_tag :product_name, item["product_name"]
           = hidden_field_tag :product_id, item["product_id"]
           = hidden_field_tag :qty, 1
           = hidden_field_tag :ribbon_color, item["ribbon_color"]
-          = button_tag class: "btn-black" do
+          = button_tag class: "btn-black", id: "remove-item" do
             %i.fa.fa-angle-double-down
       %td= "$#{(item['product_price'].to_i / 100) * item['qty'] }"
 - content_for :tr_footers do

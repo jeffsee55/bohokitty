@@ -3,9 +3,11 @@
 - content_for :image do
   = image_tag 'bk-39.jpg'
 - content_for :heading do
-  = @post.title.upcase
+  -if @post
+    = @post.title.upcase
 - content_for :body do
-  = simple_format @post.body
+  -if @post
+    = simple_format @post.body
   %hr
 
   = semantic_form_for @message do |f|

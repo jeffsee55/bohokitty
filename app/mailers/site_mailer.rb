@@ -10,7 +10,9 @@ class SiteMailer < ActionMailer::Base
 
   def message_notifier(message)
     @message = message
-    @product_name = Product.find(message.product_id).name
+    if @product_name
+      @product_name = Product.find(message.product_id).name
+    end
     mail to: "heidi@bohokitty.com"
   end
 end
