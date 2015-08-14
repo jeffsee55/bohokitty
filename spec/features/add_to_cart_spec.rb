@@ -4,7 +4,7 @@ require 'rails_helper'
 describe "When adding a product to a cart" do
   let(:product) { create(:product) }
 
-  context "the page" do
+  context "the product page" do
     it "should display an Add to Cart button" do
       visit product_path(product)
 
@@ -29,7 +29,7 @@ describe "When adding a product to a cart" do
     describe "and when adjusting the quantity" do
       it "should increase the quantity by one" do
         visit cart_path
-        click_button "ADD ITEM"
+        page.find('#add-item').click
 
         within ".qty" do
           expect(page).to have_content('2')
@@ -38,8 +38,9 @@ describe "When adding a product to a cart" do
 
       it "should descrease the quantity by one" do
         visit cart_path
-        click_button "ADD ITEM"
-        click_button "REMOVE ITEM"
+        # Add an item so that when removing an item you aren't redirected to collections
+        page.find('#add-item').click
+        page.find('#remove-item').click
 
         within ".qty" do
           expect(page).to have_content('1')
@@ -48,7 +49,7 @@ describe "When adding a product to a cart" do
 
       it "should redirect to the collections page when empty" do
         visit cart_path
-        click_button "REMOVE ITEM"
+        page.find('#empty-cart').click
 
         expect(current_path).to eq(products_path)
       end
